@@ -53,6 +53,12 @@
 
     /* GIFT CARDS */
     .gifts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
+    .gift-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;justify-content:center}
+    .gift-tab{padding:8px 18px;border-radius:999px;border:1.5px solid var(--green-200);background:var(--white);color:var(--gray-600);font-size:.83rem;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+    .gift-tab:hover{border-color:var(--green-400);color:var(--green-600)}
+    .gift-tab.active{background:var(--green-600);border-color:var(--green-600);color:var(--white)}
+    .tab-count{background:var(--green-100);color:var(--green-600);border-radius:999px;padding:1px 7px;font-size:.72rem;}
+    .gift-tab.active .tab-count{background:rgba(255,255,255,.25);color:var(--white)}
     .gift-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;border:1px solid var(--green-100)}
     .gift-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
     .gift-img{height:160px;overflow:hidden;background:var(--green-50)}
@@ -257,101 +263,279 @@
     <section id="presentes">
       <div class="sec-head">
         <h2>Presentes sugeridos</h2>
-        <span class="count">16 itens</span>
       </div>
-      <div class="gifts-grid">
 
-        <div class="gift-card">
-          <div class="gift-img"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?q=80&w=600&auto=format&fit=crop" alt="Panelas"></div>
-          <div class="gift-body"><span class="gift-tag">Cozinha</span><p class="gift-name">Conjunto de panelas (5 peças)</p><p class="gift-desc">Antiaderente de alta qualidade, ideal para o dia a dia do casal.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 420</span><button class="btn-comprar" onclick="openBuyModal('R$ 420')">🎁 Comprar</button></div>
+      <div class="gift-tabs">
+        <button class="gift-tab active" data-cat="todos">Todos <span class="tab-count">39</span></button>
+        <button class="gift-tab" data-cat="cozinha">🍳 Cozinha &amp; Mesa <span class="tab-count">19</span></button>
+        <button class="gift-tab" data-cat="casa">🛏️ Casa &amp; Quarto <span class="tab-count">9</span></button>
+        <button class="gift-tab" data-cat="eletro">🔌 Eletrodomésticos <span class="tab-count">3</span></button>
+        <button class="gift-tab" data-cat="moveis">🪑 Móveis <span class="tab-count">2</span></button>
+        <button class="gift-tab" data-cat="luademel">✈️ Lua de mel <span class="tab-count">1</span></button>
+        <button class="gift-tab" data-cat="divertidos">✨ Surpresas <span class="tab-count">5</span></button>
+      </div>
+
+      <div class="gifts-grid" id="giftsGrid">
+
+        <!-- COZINHA & MESA -->
+        <div class="gift-card" data-cat="cozinha">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/cookware,pans,kitchen?lock=1" alt="Panelas indução" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Cozinha</span><p class="gift-name">Conjunto de panelas para indução (5 peças)</p><p class="gift-desc">Antiaderente compatível com fogão de indução, estilo branco e bambu. Inclui panelas de 16, 20, 24 cm + frigideira.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 580</span><button class="btn-comprar" onclick="openBuyModal('R$ 580')">🎁 Comprar</button></div>
         </div>
 
-        <div class="gift-card">
-          <div class="gift-img"><img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?q=80&w=600&auto=format&fit=crop" alt="Pratos"></div>
-          <div class="gift-body"><span class="gift-tag">Mesa posta</span><p class="gift-name">Jogo de pratos para 6 pessoas</p><p class="gift-desc">Cerâmica moderna com acabamento fosco, resistente e elegante.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 350</span><button class="btn-comprar" onclick="openBuyModal('R$ 350')">🎁 Comprar</button></div>
+        <div class="gift-card" data-cat="cozinha">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/knife,knives,kitchen?lock=2" alt="Facas + tábua bambu" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Cozinha</span><p class="gift-name">Bloco de facas + tábua de corte bambu</p><p class="gift-desc">Kit completo para cozinhar: 6 facas afiadas, suporte de madeira e tábua.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 230</span><button class="btn-comprar" onclick="openBuyModal('R$ 230')">🎁 Comprar</button></div>
         </div>
 
-        <div class="gift-card">
-          <div class="gift-img"><img src="https://images.unsplash.com/photo-1600210491892-03d54730d73b?q=80&w=600&auto=format&fit=crop" alt="Toalhas"></div>
-          <div class="gift-body"><span class="gift-tag">Banho</span><p class="gift-name">Jogo de toalhas (kit 6 peças)</p><p class="gift-desc">Felpudas, 100% algodão, cor branca ou verde sage.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 260</span><button class="btn-comprar" onclick="openBuyModal('R$ 260')">🎁 Comprar</button></div>
-        </div>
-
-        <div class="gift-card">
-          <div class="gift-img"><img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=600&auto=format&fit=crop" alt="Cama"></div>
-          <div class="gift-body"><span class="gift-tag">Quarto</span><p class="gift-name">Jogo de cama queen</p><p class="gift-desc">200 fios, percal 100% algodão, inclui lençol e fronhas.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 380</span><button class="btn-comprar" onclick="openBuyModal('R$ 380')">🎁 Comprar</button></div>
-        </div>
-
-        <div class="gift-card">
-          <div class="gift-img"><img src="https://images.unsplash.com/photo-1611735341450-74d61e660ad2?q=80&w=600&auto=format&fit=crop" alt="Air fryer"></div>
-          <div class="gift-body"><span class="gift-tag">Eletrodoméstico</span><p class="gift-name">Air fryer 4L</p><p class="gift-desc">Fritadeira sem óleo, praticidade e saúde para as refeições.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 460</span><button class="btn-comprar" onclick="openBuyModal('R$ 460')">🎁 Comprar</button></div>
-        </div>
-
-        <div class="gift-card">
-          <div class="gift-img"><img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=600&auto=format&fit=crop" alt="Cafeteira"></div>
-          <div class="gift-body"><span class="gift-tag">Eletrodoméstico</span><p class="gift-name">Cafeteira elétrica</p><p class="gift-desc">Para começar cada manhã juntos com um café fresquinho.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 220</span><button class="btn-comprar" onclick="openBuyModal('R$ 220')">🎁 Comprar</button></div>
-        </div>
-
-        <div class="gift-card">
-          <div class="gift-img"><img src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?q=80&w=600&auto=format&fit=crop" alt="Cortinas"></div>
-          <div class="gift-body"><span class="gift-tag">Decoração</span><p class="gift-name">Par de cortinas blackout</p><p class="gift-desc">2,20 × 2,50 m, cor off white ou verde oliva.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 310</span><button class="btn-comprar" onclick="openBuyModal('R$ 310')">🎁 Comprar</button></div>
-        </div>
-
-        <div class="gift-card">
-          <div class="gift-img"><img src="https://images.unsplash.com/photo-1493946740644-2d8a1f1a6aff?q=80&w=600&auto=format&fit=crop" alt="Liquidificador"></div>
-          <div class="gift-body"><span class="gift-tag">Eletrodoméstico</span><p class="gift-name">Liquidificador potente</p><p class="gift-desc">900W, jarra de vidro 2L, 3 velocidades + pulsar.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 185</span><button class="btn-comprar" onclick="openBuyModal('R$ 185')">🎁 Comprar</button></div>
-        </div>
-
-        <div class="gift-card">
-          <div class="gift-img"><img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?q=80&w=600&auto=format&fit=crop" alt="Espelho"></div>
-          <div class="gift-body"><span class="gift-tag">Decoração</span><p class="gift-name">Espelho de parede decorativo</p><p class="gift-desc">Moldura dourada ou amadeirada, 60 × 90 cm.</p></div>
+        <div class="gift-card" data-cat="cozinha">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/plates,dinnerware,ceramic?lock=3" alt="Pratos cerâmica" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Mesa posta</span><p class="gift-name">Jogo de pratos (6 pessoas)</p><p class="gift-desc">Cerâmica com acabamento fosco, resistente e elegante. Inclui rasos e fundos.</p></div>
           <div class="gift-footer"><span class="gift-price">R$ 280</span><button class="btn-comprar" onclick="openBuyModal('R$ 280')">🎁 Comprar</button></div>
         </div>
 
-        <div class="gift-card">
-          <div class="gift-img"><img src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?q=80&w=600&auto=format&fit=crop" alt="Tapete"></div>
-          <div class="gift-body"><span class="gift-tag">Sala</span><p class="gift-name">Tapete sala (2,00 × 1,50 m)</p><p class="gift-desc">Pelo curto, tom neutro, fácil de manter.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 395</span><button class="btn-comprar" onclick="openBuyModal('R$ 395')">🎁 Comprar</button></div>
+        <div class="gift-card" data-cat="cozinha">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/cutlery,silverware,flatware?lock=4" alt="Talheres inox" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Mesa posta</span><p class="gift-name">Jogo de talheres inox (24 peças)</p><p class="gift-desc">Aço inox com cabo amadeirado, inclui garfos, facas, colheres e de sobremesa.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 190</span><button class="btn-comprar" onclick="openBuyModal('R$ 190')">🎁 Comprar</button></div>
         </div>
 
-        <div class="gift-card">
-          <div class="gift-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop" alt="Organizadores"></div>
-          <div class="gift-body"><span class="gift-tag">Organização</span><p class="gift-name">Kit organizadores de cozinha</p><p class="gift-desc">Porta temperos, porta utensílios e bandeja, inox com bambu.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 195</span><button class="btn-comprar" onclick="openBuyModal('R$ 195')">🎁 Comprar</button></div>
+        <div class="gift-card" data-cat="cozinha">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/glasses,glassware,cups?lock=5" alt="Copos vidro" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Mesa posta</span><p class="gift-name">Jogo de copos de vidro (12 unidades)</p><p class="gift-desc">Estilo canelado, resistente e superversátil — água, suco ou drink.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 130</span><button class="btn-comprar" onclick="openBuyModal('R$ 130')">🎁 Comprar</button></div>
         </div>
 
-        <div class="gift-card">
-          <div class="gift-img"><img src="https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?q=80&w=600&auto=format&fit=crop" alt="Tacas"></div>
-          <div class="gift-body"><span class="gift-tag">Mesa posta</span><p class="gift-name">Jogo de taças (6 unidades)</p><p class="gift-desc">Cristal sem chumbo, ideal para momentos especiais a dois.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 175</span><button class="btn-comprar" onclick="openBuyModal('R$ 175')">🎁 Comprar</button></div>
+        <div class="gift-card" data-cat="cozinha">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/blender,mixer,kitchen?lock=6" alt="Mixer processador" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Eletroportátil</span><p class="gift-name">Mixer + processador de alimentos</p><p class="gift-desc">800W, jarra, batedor e processador — tudo em um só. Vitaminas e sopas na hora.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 210</span><button class="btn-comprar" onclick="openBuyModal('R$ 210')">🎁 Comprar</button></div>
         </div>
 
-        <div class="gift-card">
-          <div class="gift-img"><img src="https://images.unsplash.com/photo-1544457070-4cd773b4d71e?q=80&w=600&auto=format&fit=crop" alt="Aspirador"></div>
-          <div class="gift-body"><span class="gift-tag">Casa</span><p class="gift-name">Aspirador de pó portátil</p><p class="gift-desc">Sem fio, leve, perfeito para uso rápido no dia a dia.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 340</span><button class="btn-comprar" onclick="openBuyModal('R$ 340')">🎁 Comprar</button></div>
+        <div class="gift-card" data-cat="cozinha">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/coffee,coffeemaker,espresso?lock=7" alt="Cafeteira elétrica" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Eletroportátil</span><p class="gift-name">Cafeteira elétrica</p><p class="gift-desc">Para começar cada manhã juntos com um café fresquinho. ☕</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 200</span><button class="btn-comprar" onclick="openBuyModal('R$ 200')">🎁 Comprar</button></div>
         </div>
 
-        <div class="gift-card">
-          <div class="gift-img"><img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=600&auto=format&fit=crop" alt="Plantas"></div>
-          <div class="gift-body"><span class="gift-tag">Decoração</span><p class="gift-name">Vasos e plantas decorativas</p><p class="gift-desc">Trio de vasos de cerâmica com plantas de baixa manutenção.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 150</span><button class="btn-comprar" onclick="openBuyModal('R$ 150')">🎁 Comprar</button></div>
+        <div class="gift-card" data-cat="cozinha">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/jars,storage,pantry?lock=8" alt="Potes herméticos" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Organização</span><p class="gift-name">Kit potes herméticos (vidro + tampa bambu)</p><p class="gift-desc">Conjunto para café, açúcar, arroz, feijão — bonito e funcional na bancada.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 160</span><button class="btn-comprar" onclick="openBuyModal('R$ 160')">🎁 Comprar</button></div>
         </div>
 
-        <div class="gift-card">
-          <div class="gift-img"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=600&auto=format&fit=crop" alt="Som"></div>
-          <div class="gift-body"><span class="gift-tag">Entretenimento</span><p class="gift-name">Caixinha de som Bluetooth</p><p class="gift-desc">Para noites especiais em casa, bateria de longa duração.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 290</span><button class="btn-comprar" onclick="openBuyModal('R$ 290')">🎁 Comprar</button></div>
+        <!-- COZINHA & MESA — novos itens da imagem -->
+        <div class="gift-card" data-cat="cozinha">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/green,plates,ceramic?lock=9" alt="Pratos verdes" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Mesa posta</span><p class="gift-name">Jogo de pratos cerâmica verde (6 pessoas)</p><p class="gift-desc">Estilo rústico moderno, tom verde oliva/abacate. Inclui rasos e fundos — combina com a paleta da casa.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 180</span><button class="btn-comprar" onclick="openBuyModal('R$ 180')">🎁 Comprar</button></div>
         </div>
 
-        <div class="gift-card" style="border:2px solid var(--green-400);background:linear-gradient(145deg,#f5f7f3,#fff)">
+        <div class="gift-card" data-cat="cozinha">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/drawer,organizer,bamboo?lock=10" alt="Organizador gaveta bambu" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Cozinha</span><p class="gift-name">Organizador de gaveta de talheres (bambu)</p><p class="gift-desc">Bandeja divisória de bambu para gaveta de cozinha — mantém tudo no lugar e ainda fica bonito.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 80</span><button class="btn-comprar" onclick="openBuyModal('R$ 80')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="cozinha">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/utensils,spatula,cooking?lock=11" alt="Porta-utensílios bambu" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Cozinha</span><p class="gift-name">Porta-utensílios de bambu + kit silicone (15 peças)</p><p class="gift-desc">Suporte cilíndrico de bambu com colheres, espátulas e pegadores de silicone. Bonito na bancada.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 115</span><button class="btn-comprar" onclick="openBuyModal('R$ 115')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="cozinha">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/wineglass,goblet,green?lock=12" alt="Taças verdes" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Mesa posta</span><p class="gift-name">Taças verdes (6 unidades)</p><p class="gift-desc">Vidro na cor verde oliva, perfeitas para a mesa posta e aquele vinho especial a dois.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 80</span><button class="btn-comprar" onclick="openBuyModal('R$ 80')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="cozinha">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/mug,cup,coffee?lock=13" alt="Canecas verdes poá" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Mesa posta</span><p class="gift-name">Canecas verdes com poá (kit 4)</p><p class="gift-desc">Cerâmica verde com detalhes brancos, perfeitas para um café da manhã charmoso e aconchegante.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 65</span><button class="btn-comprar" onclick="openBuyModal('R$ 65')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="cozinha">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/kettle,teapot,kitchen?lock=14" alt="Chaleira vintage" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Cozinha</span><p class="gift-name">Chaleira para fogão estilo vintage</p><p class="gift-desc">Design retrô branco com detalhes em madeira. Para chá, café coado e aquela atmosfera aconchegante.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 130</span><button class="btn-comprar" onclick="openBuyModal('R$ 130')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="cozinha">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/baking,ovendish,casserole?lock=15" alt="Formas forno brancas" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Cozinha</span><p class="gift-name">Jogo de formas de forno brancas (3 peças)</p><p class="gift-desc">Cerâmica branca empilhável, tamanhos P, M e G. Para assados, gratinados e tortas que impressionam.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 110</span><button class="btn-comprar" onclick="openBuyModal('R$ 110')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="cozinha">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/cakestand,cake,dessert?lock=16" alt="Boleira cúpula bambu" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Mesa posta</span><p class="gift-name">Boleira com cúpula e base de bambu</p><p class="gift-desc">Estilo rústico-moderno, ideal para apresentar bolos, cucas e doces na mesa — decora e protege.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 120</span><button class="btn-comprar" onclick="openBuyModal('R$ 120')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="cozinha">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/placemat,tablemat,woven?lock=17" alt="Sousplat junco natural" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Mesa posta</span><p class="gift-name">Sousplat de junco natural (6 unidades)</p><p class="gift-desc">Trançado artesanal de palha/junco, dão um ar rústico e elegante para a mesa posta do dia a dia.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 75</span><button class="btn-comprar" onclick="openBuyModal('R$ 75')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="cozinha">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/towel,dishtowel,kitchen?lock=18" alt="Panos de prato" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Cozinha</span><p class="gift-name">Panos de prato / guardanapos (kit 6)</p><p class="gift-desc">100% algodão com fio penteado, absorvente e resistente. Tom neutro ou listrado, uso culinário diário.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 40</span><button class="btn-comprar" onclick="openBuyModal('R$ 40')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="cozinha">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/spice,spicerack,herbs?lock=19" alt="Porta-temperos giratório" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Organização</span><p class="gift-name">Porta-temperos giratório (bambu, 12 frascos)</p><p class="gift-desc">Torre giratória de bambu com 12 potesinhos de vidro. Sal, pimenta, orégano e mais — tudo acessível e organizado.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 120</span><button class="btn-comprar" onclick="openBuyModal('R$ 120')">🎁 Comprar</button></div>
+        </div>
+
+        <!-- CASA & QUARTO -->
+        <div class="gift-card" data-cat="casa">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/bedlinen,sheets,bedroom?lock=20" alt="Jogo de cama queen" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Quarto</span><p class="gift-name">Jogo de cama queen (300 fios)</p><p class="gift-desc">Percal 100% algodão, inclui lençol de elástico, lençol plano e 2 fronhas.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 360</span><button class="btn-comprar" onclick="openBuyModal('R$ 360')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="casa">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/towel,bathtowel,bathroom?lock=21" alt="Toalhas verdes bege" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Banho</span><p class="gift-name">Jogo de toalhas verdes e bege (kit 8 peças)</p><p class="gift-desc">Felpudas, 100% algodão, tons verde oliva e areia. Inclui de banho, rosto e lavabo.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 240</span><button class="btn-comprar" onclick="openBuyModal('R$ 240')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="casa">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/pillow,bedroom,sleep?lock=22" alt="Travesseiros" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Quarto</span><p class="gift-name">Par de travesseiros (fibra siliconada)</p><p class="gift-desc">Macios, lavável em máquina, excelente suporte para o pescoço — para noites de sono perfeito a dois.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 120</span><button class="btn-comprar" onclick="openBuyModal('R$ 120')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="casa">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/mirror,walldecor,interior?lock=23" alt="Espelho decorativo" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Decoração</span><p class="gift-name">Espelho de parede decorativo</p><p class="gift-desc">Moldura amadeirada ou dourada, 60 × 90 cm — toque de charme na sala ou quarto.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 260</span><button class="btn-comprar" onclick="openBuyModal('R$ 260')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="casa">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/rug,carpet,livingroom?lock=24" alt="Tapete sala" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Sala</span><p class="gift-name">Tapete de sala (2,00 × 1,50 m)</p><p class="gift-desc">Pelo curto, tom neutro, fácil higienização — aconchego imediato para a sala nova.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 380</span><button class="btn-comprar" onclick="openBuyModal('R$ 380')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="casa">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/trashcan,kitchen,stainless?lock=25" alt="Lixeira inox" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Casa</span><p class="gift-name">Lixeira inox com pedal 12L</p><p class="gift-desc">Tampa com mola, acionamento por pedal, aço inoxidável escovado — prática e elegante na cozinha.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 180</span><button class="btn-comprar" onclick="openBuyModal('R$ 180')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="casa">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/storage,baskets,organizer?lock=26" alt="Organizadores empilháveis" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Organização</span><p class="gift-name">Kit organizadores empilháveis (3 peças, verde)</p><p class="gift-desc">Cestos modulares para geladeira ou armário, tom verde oliva. Deixam tudo visível e acessível.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 60</span><button class="btn-comprar" onclick="openBuyModal('R$ 60')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="casa">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/bathroom,clean,hygiene?lock=27" alt="Escova sanitária bambu" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Banho</span><p class="gift-name">Escova sanitária + suporte bambu</p><p class="gift-desc">Escova com cerdas macias e suporte de bambu com acabamento branco — higiene com estilo.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 45</span><button class="btn-comprar" onclick="openBuyModal('R$ 45')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="casa">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/laundry,clothes,drying?lock=28" alt="Varal dobrável" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Casa</span><p class="gift-name">Varal de chão dobrável</p><p class="gift-desc">Estrutura em aço, dobrável, para roupas delicadas ou apartamento sem área de serviço grande.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 80</span><button class="btn-comprar" onclick="openBuyModal('R$ 80')">🎁 Comprar</button></div>
+        </div>
+
+        <!-- ELETRODOMÉSTICOS -->
+        <div class="gift-card" data-cat="eletro">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/refrigerator,fridge,kitchen?lock=29" alt="Geladeira frost-free" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Eletrodoméstico</span><p class="gift-name">Geladeira frost-free 400L</p><p class="gift-desc">2 portas, frost-free, compressor inverter. O presente mais prático para o lar novo!</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 2.800</span><button class="btn-comprar" onclick="openBuyModal('R$ 2.800')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="eletro">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/pressurecooker,cooking,pot?lock=30" alt="Panela de pressão elétrica" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Eletrodoméstico</span><p class="gift-name">Panela de pressão elétrica</p><p class="gift-desc">6L, digital, multifunção — arroz, feijão, carnes e muito mais. Praticidade máxima no dia a dia.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 350</span><button class="btn-comprar" onclick="openBuyModal('R$ 350')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="eletro">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/sandwich,grill,toaster?lock=31" alt="Sanduicheira grill" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Eletrodoméstico</span><p class="gift-name">Sanduicheira / grill elétrico</p><p class="gift-desc">Placas antiaderentes, aquecimento rápido e uniforme. Dos lanches noturnos aos cafés da manhã especiais.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 120</span><button class="btn-comprar" onclick="openBuyModal('R$ 120')">🎁 Comprar</button></div>
+        </div>
+
+        <!-- MÓVEIS -->
+        <div class="gift-card" data-cat="moveis">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/bed,bedroom,furniture?lock=32" alt="Cama de casal" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Móvel</span><p class="gift-name">Cama de casal (base box + colchão)</p><p class="gift-desc">Box casal padrão + colchão espuma D33, 138×188 cm. A base do lar e das boas noites juntos!</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 1.800</span><button class="btn-comprar" onclick="openBuyModal('R$ 1.800')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="moveis">
+          <div class="gift-img"><img src="https://loremflickr.com/600/400/officechair,chair,ergonomic?lock=33" alt="Cadeira ergonômica" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Móvel</span><p class="gift-name">Cadeira de escritório ergonômica</p><p class="gift-desc">Assento regulável, encosto lombar, apoio de braços. Porque home office merece conforto — de verdade.</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 600</span><button class="btn-comprar" onclick="openBuyModal('R$ 600')">🎁 Comprar</button></div>
+        </div>
+
+        <!-- LUA DE MEL -->
+        <div class="gift-card" data-cat="luademel" style="border:2px solid #c4a55a;background:linear-gradient(145deg,#fdfbf5,#fffdf7)">
+          <div class="gift-img" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#fdf6e3,#fef9ec);font-size:3.5rem">
+            ✈️
+          </div>
+          <div class="gift-body">
+            <span class="gift-tag" style="background:#f5e9c2;color:#8a6d1a">Lua de mel</span>
+            <p class="gift-name">Patrocine nossa lua de mel 🌙</p>
+            <p class="gift-desc">Cada contribuição nos aproxima da viagem dos nossos sonhos. Qualquer quantia já nos faz voar de alegria!</p>
+          </div>
+          <div class="gift-footer"><button class="btn-comprar" style="background:#b8922a" onclick="openBuyModal('Lua de mel')">✈️ Contribuir</button></div>
+        </div>
+
+        <!-- SURPRESAS -->
+        <div class="gift-card" data-cat="divertidos" style="border:2px dashed #d4b896;background:linear-gradient(145deg,#fdf9f5,#fff)">
+          <div class="gift-img" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#fdf0e3,#fef5ec);font-size:3.5rem">🍔</div>
+          <div class="gift-body">
+            <span class="gift-tag" style="background:#fde8cc;color:#a05a1a">Surpresa ✨</span>
+            <p class="gift-name">Garanta o jantar dos noivos no 1º mês</p>
+            <p class="gift-desc">Porque planejar casamento cansa e cozinhar também. Esse presente vai direto para o iFood deles!</p>
+          </div>
+          <div class="gift-footer"><span class="gift-price">R$ 80</span><button class="btn-comprar" onclick="openBuyModal('R$ 80')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="divertidos" style="border:2px dashed #d4b896;background:linear-gradient(145deg,#fdf9f5,#fff)">
+          <div class="gift-img" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#fdf0e3,#fef5ec);font-size:3.5rem">🌙</div>
+          <div class="gift-body">
+            <span class="gift-tag" style="background:#fde8cc;color:#a05a1a">Surpresa ✨</span>
+            <p class="gift-name">Patrocine a noite de núpcias</p>
+            <p class="gift-desc">Uma diária na pousada mais charmosa! Garanta que a primeira noite como casados seja inesquecível.</p>
+          </div>
+          <div class="gift-footer"><span class="gift-price">R$ 300</span><button class="btn-comprar" onclick="openBuyModal('R$ 300')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="divertidos" style="border:2px dashed #d4b896;background:linear-gradient(145deg,#fdf9f5,#fff)">
+          <div class="gift-img" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#fdf0e3,#fef5ec);font-size:3.5rem">🤝</div>
+          <div class="gift-body">
+            <span class="gift-tag" style="background:#fde8cc;color:#a05a1a">Surpresa ✨</span>
+            <p class="gift-name">Cota "amigos para sempre"</p>
+            <p class="gift-desc">Entrada no fundo coletivo dos melhores amigos. Nenhum benefício garantido. Somente amor eterno e obrigado!</p>
+          </div>
+          <div class="gift-footer"><span class="gift-price">R$ 50</span><button class="btn-comprar" onclick="openBuyModal('R$ 50')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="divertidos" style="border:2px dashed #d4b896;background:linear-gradient(145deg,#fdf9f5,#fff)">
+          <div class="gift-img" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#fdf0e3,#fef5ec);font-size:3.5rem">🏦</div>
+          <div class="gift-body">
+            <span class="gift-tag" style="background:#fde8cc;color:#a05a1a">Surpresa ✨</span>
+            <p class="gift-name">Patrocine a aposentadoria dos noivos</p>
+            <p class="gift-desc">Porque ninguém se aposenta mais. Mas a gente já agradece com 30 anos de antecedência por qualquer ajuda nessa causa nobre.</p>
+          </div>
+          <div class="gift-footer"><span class="gift-price">R$ 100</span><button class="btn-comprar" onclick="openBuyModal('R$ 100')">🎁 Comprar</button></div>
+        </div>
+
+        <!-- CONTRIBUIÇÃO LIVRE -->
+        <div class="gift-card" data-cat="divertidos" style="border:2px solid var(--green-400);background:linear-gradient(145deg,#f5f7f3,#fff)">
           <div class="gift-img" style="display:flex;align-items:center;justify-content:center;background:var(--green-100)">
             <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#628A4C" stroke-width="1.4"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402C1 3.335 4.03 2 6.5 2c1.742 0 3.593.87 4.5 2.476C11.907 2.87 13.758 2 15.5 2 17.97 2 21 3.335 21 7.191c0 4.105-5.37 8.863-11 14.402z"/></svg>
           </div>
@@ -477,6 +661,18 @@
       function fallback(){var t=document.createElement('textarea');t.value=key;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);confirm();}
     }
     document.addEventListener('keydown',function(e){if(e.key==='Escape')closeBuyModal();});
+
+    // Abas dos presentes
+    document.querySelectorAll('.gift-tab').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        document.querySelectorAll('.gift-tab').forEach(function(b){b.classList.remove('active');});
+        btn.classList.add('active');
+        var cat=btn.dataset.cat;
+        document.querySelectorAll('#giftsGrid .gift-card').forEach(function(card){
+          card.style.display=(cat==='todos'||card.dataset.cat===cat)?'':'none';
+        });
+      });
+    });
 
     (function(){
       var btn=document.getElementById('copyBtn');
