@@ -7,8 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --green-50:#f2faf7;--green-100:#d6f0e8;--green-200:#aadece;
-      --green-400:#7dcfba;--green-500:#52baa4;--green-600:#3a9e8b;--green-700:#2b7d6d;
+      --green-50:#f4f7f2;--green-100:#dce8d5;--green-200:#b8d1a9;
+      --green-400:#8aaf72;--green-500:#74985a;--green-600:#628A4C;--green-700:#4d6e3b;
       --white:#ffffff;--gray-100:#f3f4f6;--gray-200:#e5e7eb;
       --gray-400:#9ca3af;--gray-600:#4b5563;--gray-800:#1f2937;
       --shadow-sm:0 2px 8px rgba(0,0,0,.06);--shadow-md:0 8px 28px rgba(0,0,0,.09);--shadow-lg:0 20px 48px rgba(0,0,0,.12);
@@ -26,12 +26,11 @@
     .nav-links a:hover{color:var(--green-600)}
 
     /* HERO */
-    .hero{text-align:center;padding:80px 20px 60px;background:linear-gradient(160deg,var(--white) 0%,var(--green-50) 60%,var(--green-100) 100%);border-bottom:1px solid var(--green-100)}
-    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--green-100);color:var(--green-700);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:5px 14px;border-radius:999px;margin-bottom:20px}
-    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,6vw,4.2rem);color:var(--gray-800);line-height:1.1}
+    .hero{text-align:center;padding:80px 20px 72px;background:linear-gradient(160deg,var(--white) 0%,var(--green-50) 60%,var(--green-100) 100%);border-bottom:1px solid var(--green-100);display:flex;flex-direction:column;align-items:center;gap:18px}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--green-100);color:var(--green-700);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:5px 14px;border-radius:999px}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,6vw,4.2rem);color:var(--gray-800);line-height:1.1;margin:0}
     .hero h1 span{color:var(--green-600)}
-    .hero-sub{color:var(--gray-600);margin-top:14px;font-size:1.05rem;font-weight:300}
-    .hero-date{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--green-200);color:var(--green-700);font-weight:600;font-size:.95rem;padding:8px 20px;border-radius:999px;margin-top:28px;box-shadow:var(--shadow-sm)}
+    .hero-date{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--green-200);color:var(--green-700);font-weight:600;font-size:.95rem;padding:8px 20px;border-radius:999px;box-shadow:var(--shadow-sm)}
 
     /* COUNTDOWN */
     .countdown-wrap{display:flex;justify-content:center;gap:12px;margin:40px auto;flex-wrap:wrap}
@@ -47,7 +46,7 @@
 
     /* PHOTOS */
     .photos-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:200px 200px;gap:10px}
-    .photo-slot{background:var(--green-100);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--green-600);font-weight:500;font-size:.9rem;border:2px dashed #96dfc9;border-radius:10px;overflow:hidden}
+    .photo-slot{background:var(--green-100);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--green-600);font-weight:500;font-size:.9rem;border:2px dashed #a5c48e;border-radius:10px;overflow:hidden}
     .photo-slot svg{opacity:.5;width:32px;height:32px}
     .photo-slot:first-child{grid-row:span 2}
     .photo-slot img{width:100%;height:100%;object-fit:cover;display:block}
@@ -80,6 +79,34 @@
     .copy-status{font-size:.9rem;color:var(--green-600);font-weight:600;min-width:72px}
     .divider{height:1px;background:linear-gradient(90deg,transparent,var(--green-200),transparent);margin:4px 0}
 
+    /* BOTÃO COMPRAR */
+    .btn-comprar{display:inline-flex;align-items:center;gap:5px;padding:8px 14px;background:var(--green-600);color:var(--white);border:none;border-radius:8px;font-size:.82rem;font-weight:600;cursor:pointer;transition:background .15s,transform .12s;white-space:nowrap}
+    .btn-comprar:hover{background:var(--green-700);transform:translateY(-1px)}
+
+    /* MODAL */
+    .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;align-items:center;justify-content:center;padding:20px}
+    .modal-overlay.open{display:flex}
+    .modal-box{background:var(--white);border-radius:20px;max-width:460px;width:100%;box-shadow:0 24px 64px rgba(0,0,0,.18);overflow:hidden;animation:modalIn .22s ease}
+    @keyframes modalIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+    .modal-head{background:linear-gradient(110deg,var(--green-600),var(--green-500));padding:24px 28px;color:var(--white);display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+    .modal-head h3{font-family:'Playfair Display',serif;font-size:1.25rem;line-height:1.2}
+    .modal-head p{font-size:.85rem;opacity:.88;margin-top:4px}
+    .modal-close{background:rgba(255,255,255,.2);border:none;color:var(--white);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:1.1rem;line-height:1;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+    .modal-close:hover{background:rgba(255,255,255,.35)}
+    .modal-opts{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:24px 28px}
+    .modal-opt{border:2px solid var(--green-200);border-radius:14px;padding:18px 16px;display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer;background:var(--white);text-align:center;transition:border-color .15s,box-shadow .15s;text-decoration:none}
+    .modal-opt:hover{border-color:var(--green-500);box-shadow:0 4px 18px rgba(98,138,76,.15)}
+    .modal-opt-icon{width:48px;height:48px;border-radius:12px;background:var(--green-100);display:flex;align-items:center;justify-content:center}
+    .modal-opt-title{font-weight:700;font-size:.95rem;color:var(--gray-800)}
+    .modal-opt-sub{font-size:.78rem;color:var(--gray-600)}
+    .modal-pix{padding:0 28px 24px;display:none;flex-direction:column;gap:10px}
+    .modal-pix.show{display:flex}
+    .modal-pix-row{display:flex;gap:8px;align-items:center}
+    .modal-pix-input{flex:1;padding:10px 13px;border:1.5px solid var(--green-200);border-radius:9px;background:var(--green-50);font-size:.88rem;font-weight:600;font-family:monospace;color:var(--gray-800);outline:none;cursor:default;overflow:hidden;text-overflow:ellipsis}
+    .modal-copy-btn{flex-shrink:0;padding:10px 14px;background:var(--green-600);color:var(--white);border:none;border-radius:9px;font-weight:600;font-size:.82rem;cursor:pointer;display:flex;align-items:center;gap:5px;white-space:nowrap}
+    .modal-copy-btn:hover{background:var(--green-700)}
+    .modal-copy-status{font-size:.85rem;color:var(--green-600);font-weight:600;min-height:20px;text-align:center}
+
     /* FOOTER */
     footer{margin-top:64px;background:var(--white);border-top:1px solid var(--green-100);padding:40px 24px;text-align:center}
     .footer-names{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--green-600);margin-bottom:6px}
@@ -98,6 +125,25 @@
     .hero-location strong{color:var(--gray-800)}
     .hero-location a{color:var(--green-600);font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:3px}
     .hero-location a:hover{text-decoration:underline}
+
+    /* INVITE SECTION */
+    .invite-greeting{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--green-700);font-style:italic;margin-top:8px}
+    .invite-text{color:var(--gray-600);font-size:.96rem;line-height:1.8;max-width:540px;margin:0 auto}
+    .invite-line{display:flex;align-items:center;gap:10px;width:100%;max-width:540px;margin:6px auto}
+    .invite-line::before,.invite-line::after{content:'';flex:1;height:1px;background:var(--green-100)}
+    .invite-line svg{flex-shrink:0}
+    .invite-events{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;width:100%;max-width:600px;margin:4px auto}
+    .invite-event{background:var(--white);border:1px solid var(--green-100);border-radius:16px;padding:18px 22px;text-align:left;flex:1;min-width:220px;max-width:280px;display:flex;gap:12px;align-items:flex-start;box-shadow:var(--shadow-sm)}
+    .invite-event-icon{font-size:1.3rem;flex-shrink:0;margin-top:1px}
+    .invite-event-title{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--gray-800);font-weight:700;margin-bottom:3px}
+    .invite-event-place{font-weight:600;color:var(--green-600);font-size:.88rem;margin-bottom:2px}
+    .invite-event-detail{font-size:.8rem;color:var(--gray-600);margin-bottom:3px}
+    .invite-map-link{font-size:.75rem;color:var(--green-600);font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:3px}
+    .invite-map-link:hover{text-decoration:underline}
+    .invite-closing{font-size:.95rem;color:var(--gray-600);font-style:italic}
+    .invite-signature{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--gray-800);line-height:1.5}
+    .invite-signature span{color:var(--green-600)}
+    @media(max-width:600px){.invite-events{flex-direction:column;align-items:center}.invite-event{max-width:100%;width:100%}}
 
     /* RESPONSIVE */
     @media(max-width:700px){
@@ -121,24 +167,53 @@
     </div>
   </nav>
 
-  <section class="hero">
+  <section class="hero" id="convite">
     <div class="hero-badge">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402C1 3.335 4.03 2 6.5 2c1.742 0 3.593.87 4.5 2.476C11.907 2.87 13.758 2 15.5 2 17.97 2 21 3.335 21 7.191c0 4.105-5.37 8.863-11 14.402z"/></svg>
-      Nossa Lista de Casamento
+      Vamos nos casar! 
     </div>
     <h1>Lucas <span>&amp;</span> Lene</h1>
-    <p class="hero-sub">Cada presente carrega um pedacinho do seu carinho no nosso novo lar</p>
+
+    <p class="invite-greeting">Queridos familiares e amigos,</p>
+    <p class="invite-text">Para nós, a presença de vocês neste dia tão especial é o maior presente que poderíamos receber. Vamos nos casar no civil e, com o coração transbordando de amor, gostaríamos de compartilhar essa alegria com as pessoas que mais amamos.</p>
+    <p class="invite-text">Após a cerimônia no cartório, convidamos vocês para nos acompanhar em um almoço de celebração — simples, afetuoso e cheio de significado.</p>
+
+    <div class="invite-line">
+      <svg width="80" height="18" viewBox="0 0 80 18" fill="none"><path d="M4 9 C16 3 24 15 36 9 C48 3 56 15 68 9 C72 7 75 8 77 9" stroke="#8aaf72" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.7"/><ellipse cx="22" cy="6" rx="5" ry="3" transform="rotate(-20 22 6)" fill="#b8d1a9" opacity="0.6"/><ellipse cx="50" cy="12" rx="5" ry="3" transform="rotate(20 50 12)" fill="#8aaf72" opacity="0.55"/></svg>
+    </div>
+
+    <div class="invite-events">
+      <div class="invite-event">
+        <div class="invite-event-icon">🏛️</div>
+        <div>
+          <p class="invite-event-title">Cerimônia Civil</p>
+          <p class="invite-event-place">Cartório do Jardim São Luiz</p>
+          <p class="invite-event-detail">18 de Abril de 2026 &middot; 10h</p>
+          <a href="https://www.google.com/maps/search/Cart%C3%B3rio+de+Registro+Civil+Jardim+S%C3%A3o+Luiz+S%C3%A3o+Paulo" target="_blank" rel="noopener" class="invite-map-link">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Ver no Maps
+          </a>
+        </div>
+      </div>
+      <div class="invite-event">
+        <div class="invite-event-icon">🍽️</div>
+        <div>
+          <p class="invite-event-title">Almoço de Celebração</p>
+          <p class="invite-event-place">Mata Citta</p>
+          <p class="invite-event-detail">Após a cerimônia &middot; 🍴 Comandas individuais</p>
+          <a href="https://maps.app.goo.gl/E3L1rVxenMmd9r6d9?g_st=aw" target="_blank" rel="noopener" class="invite-map-link">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Ver no Maps
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p class="invite-closing">A presença de vocês será a nossa festa! 💚</p>
+    <p class="invite-signature">Com todo amor, <span style="display:inline">Lucas &amp; Lene</span></p>
     <div class="hero-date">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
       18 de Abril de 2026
-    </div>
-    <div class="hero-location">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-      Cartório do Jardim São Luiz &mdash; <strong>10h da manhã</strong>
-      <a href="https://www.google.com/maps/search/Cart%C3%B3rio+de+Registro+Civil+Jardim+S%C3%A3o+Luiz+S%C3%A3o+Paulo" target="_blank" rel="noopener">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        Ver no Maps
-      </a>
     </div>
     <div class="countdown-wrap" id="countdown">
       <div class="countdown-box"><div class="countdown-num" id="cd-d">--</div><div class="countdown-lbl">Dias</div></div>
@@ -189,96 +264,96 @@
         <div class="gift-card">
           <div class="gift-img"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?q=80&w=600&auto=format&fit=crop" alt="Panelas"></div>
           <div class="gift-body"><span class="gift-tag">Cozinha</span><p class="gift-name">Conjunto de panelas (5 peças)</p><p class="gift-desc">Antiaderente de alta qualidade, ideal para o dia a dia do casal.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 420</span></div>
+          <div class="gift-footer"><span class="gift-price">R$ 420</span><button class="btn-comprar" onclick="openBuyModal('R$ 420')">🎁 Comprar</button></div>
         </div>
 
         <div class="gift-card">
           <div class="gift-img"><img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?q=80&w=600&auto=format&fit=crop" alt="Pratos"></div>
           <div class="gift-body"><span class="gift-tag">Mesa posta</span><p class="gift-name">Jogo de pratos para 6 pessoas</p><p class="gift-desc">Cerâmica moderna com acabamento fosco, resistente e elegante.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 350</span></div>
+          <div class="gift-footer"><span class="gift-price">R$ 350</span><button class="btn-comprar" onclick="openBuyModal('R$ 350')">🎁 Comprar</button></div>
         </div>
 
         <div class="gift-card">
           <div class="gift-img"><img src="https://images.unsplash.com/photo-1600210491892-03d54730d73b?q=80&w=600&auto=format&fit=crop" alt="Toalhas"></div>
           <div class="gift-body"><span class="gift-tag">Banho</span><p class="gift-name">Jogo de toalhas (kit 6 peças)</p><p class="gift-desc">Felpudas, 100% algodão, cor branca ou verde sage.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 260</span></div>
+          <div class="gift-footer"><span class="gift-price">R$ 260</span><button class="btn-comprar" onclick="openBuyModal('R$ 260')">🎁 Comprar</button></div>
         </div>
 
         <div class="gift-card">
           <div class="gift-img"><img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=600&auto=format&fit=crop" alt="Cama"></div>
           <div class="gift-body"><span class="gift-tag">Quarto</span><p class="gift-name">Jogo de cama queen</p><p class="gift-desc">200 fios, percal 100% algodão, inclui lençol e fronhas.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 380</span></div>
+          <div class="gift-footer"><span class="gift-price">R$ 380</span><button class="btn-comprar" onclick="openBuyModal('R$ 380')">🎁 Comprar</button></div>
         </div>
 
         <div class="gift-card">
           <div class="gift-img"><img src="https://images.unsplash.com/photo-1611735341450-74d61e660ad2?q=80&w=600&auto=format&fit=crop" alt="Air fryer"></div>
           <div class="gift-body"><span class="gift-tag">Eletrodoméstico</span><p class="gift-name">Air fryer 4L</p><p class="gift-desc">Fritadeira sem óleo, praticidade e saúde para as refeições.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 460</span></div>
+          <div class="gift-footer"><span class="gift-price">R$ 460</span><button class="btn-comprar" onclick="openBuyModal('R$ 460')">🎁 Comprar</button></div>
         </div>
 
         <div class="gift-card">
           <div class="gift-img"><img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=600&auto=format&fit=crop" alt="Cafeteira"></div>
           <div class="gift-body"><span class="gift-tag">Eletrodoméstico</span><p class="gift-name">Cafeteira elétrica</p><p class="gift-desc">Para começar cada manhã juntos com um café fresquinho.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 220</span></div>
+          <div class="gift-footer"><span class="gift-price">R$ 220</span><button class="btn-comprar" onclick="openBuyModal('R$ 220')">🎁 Comprar</button></div>
         </div>
 
         <div class="gift-card">
           <div class="gift-img"><img src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?q=80&w=600&auto=format&fit=crop" alt="Cortinas"></div>
           <div class="gift-body"><span class="gift-tag">Decoração</span><p class="gift-name">Par de cortinas blackout</p><p class="gift-desc">2,20 × 2,50 m, cor off white ou verde oliva.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 310</span></div>
+          <div class="gift-footer"><span class="gift-price">R$ 310</span><button class="btn-comprar" onclick="openBuyModal('R$ 310')">🎁 Comprar</button></div>
         </div>
 
         <div class="gift-card">
           <div class="gift-img"><img src="https://images.unsplash.com/photo-1493946740644-2d8a1f1a6aff?q=80&w=600&auto=format&fit=crop" alt="Liquidificador"></div>
           <div class="gift-body"><span class="gift-tag">Eletrodoméstico</span><p class="gift-name">Liquidificador potente</p><p class="gift-desc">900W, jarra de vidro 2L, 3 velocidades + pulsar.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 185</span></div>
+          <div class="gift-footer"><span class="gift-price">R$ 185</span><button class="btn-comprar" onclick="openBuyModal('R$ 185')">🎁 Comprar</button></div>
         </div>
 
         <div class="gift-card">
           <div class="gift-img"><img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?q=80&w=600&auto=format&fit=crop" alt="Espelho"></div>
           <div class="gift-body"><span class="gift-tag">Decoração</span><p class="gift-name">Espelho de parede decorativo</p><p class="gift-desc">Moldura dourada ou amadeirada, 60 × 90 cm.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 280</span></div>
+          <div class="gift-footer"><span class="gift-price">R$ 280</span><button class="btn-comprar" onclick="openBuyModal('R$ 280')">🎁 Comprar</button></div>
         </div>
 
         <div class="gift-card">
           <div class="gift-img"><img src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?q=80&w=600&auto=format&fit=crop" alt="Tapete"></div>
           <div class="gift-body"><span class="gift-tag">Sala</span><p class="gift-name">Tapete sala (2,00 × 1,50 m)</p><p class="gift-desc">Pelo curto, tom neutro, fácil de manter.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 395</span></div>
+          <div class="gift-footer"><span class="gift-price">R$ 395</span><button class="btn-comprar" onclick="openBuyModal('R$ 395')">🎁 Comprar</button></div>
         </div>
 
         <div class="gift-card">
           <div class="gift-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop" alt="Organizadores"></div>
           <div class="gift-body"><span class="gift-tag">Organização</span><p class="gift-name">Kit organizadores de cozinha</p><p class="gift-desc">Porta temperos, porta utensílios e bandeja, inox com bambu.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 195</span></div>
+          <div class="gift-footer"><span class="gift-price">R$ 195</span><button class="btn-comprar" onclick="openBuyModal('R$ 195')">🎁 Comprar</button></div>
         </div>
 
         <div class="gift-card">
           <div class="gift-img"><img src="https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?q=80&w=600&auto=format&fit=crop" alt="Tacas"></div>
           <div class="gift-body"><span class="gift-tag">Mesa posta</span><p class="gift-name">Jogo de taças (6 unidades)</p><p class="gift-desc">Cristal sem chumbo, ideal para momentos especiais a dois.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 175</span></div>
+          <div class="gift-footer"><span class="gift-price">R$ 175</span><button class="btn-comprar" onclick="openBuyModal('R$ 175')">🎁 Comprar</button></div>
         </div>
 
         <div class="gift-card">
           <div class="gift-img"><img src="https://images.unsplash.com/photo-1544457070-4cd773b4d71e?q=80&w=600&auto=format&fit=crop" alt="Aspirador"></div>
           <div class="gift-body"><span class="gift-tag">Casa</span><p class="gift-name">Aspirador de pó portátil</p><p class="gift-desc">Sem fio, leve, perfeito para uso rápido no dia a dia.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 340</span></div>
+          <div class="gift-footer"><span class="gift-price">R$ 340</span><button class="btn-comprar" onclick="openBuyModal('R$ 340')">🎁 Comprar</button></div>
         </div>
 
         <div class="gift-card">
           <div class="gift-img"><img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=600&auto=format&fit=crop" alt="Plantas"></div>
           <div class="gift-body"><span class="gift-tag">Decoração</span><p class="gift-name">Vasos e plantas decorativas</p><p class="gift-desc">Trio de vasos de cerâmica com plantas de baixa manutenção.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 150</span></div>
+          <div class="gift-footer"><span class="gift-price">R$ 150</span><button class="btn-comprar" onclick="openBuyModal('R$ 150')">🎁 Comprar</button></div>
         </div>
 
         <div class="gift-card">
           <div class="gift-img"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=600&auto=format&fit=crop" alt="Som"></div>
           <div class="gift-body"><span class="gift-tag">Entretenimento</span><p class="gift-name">Caixinha de som Bluetooth</p><p class="gift-desc">Para noites especiais em casa, bateria de longa duração.</p></div>
-          <div class="gift-footer"><span class="gift-price">R$ 290</span></div>
+          <div class="gift-footer"><span class="gift-price">R$ 290</span><button class="btn-comprar" onclick="openBuyModal('R$ 290')">🎁 Comprar</button></div>
         </div>
 
-        <div class="gift-card" style="border:2px solid var(--green-400);background:linear-gradient(145deg,#f0fdf4,#fff)">
+        <div class="gift-card" style="border:2px solid var(--green-400);background:linear-gradient(145deg,#f5f7f3,#fff)">
           <div class="gift-img" style="display:flex;align-items:center;justify-content:center;background:var(--green-100)">
-            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#1a9b77" stroke-width="1.4"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402C1 3.335 4.03 2 6.5 2c1.742 0 3.593.87 4.5 2.476C11.907 2.87 13.758 2 15.5 2 17.97 2 21 3.335 21 7.191c0 4.105-5.37 8.863-11 14.402z"/></svg>
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#628A4C" stroke-width="1.4"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402C1 3.335 4.03 2 6.5 2c1.742 0 3.593.87 4.5 2.476C11.907 2.87 13.758 2 15.5 2 17.97 2 21 3.335 21 7.191c0 4.105-5.37 8.863-11 14.402z"/></svg>
           </div>
           <div class="gift-body"><span class="gift-tag" style="background:var(--green-200)">Contribuição</span><p class="gift-name">Contribuição livre ❤️</p><p class="gift-desc">Qualquer valor é muito bem-vindo. Ajude a construir o nosso ninho!</p></div>
           <div class="gift-footer"><a href="#pix" class="btn" style="font-size:.85rem;padding:9px 14px">Ver chave Pix</a></div>
@@ -320,6 +395,36 @@
 
   </div>
 
+  <!-- MODAL COMPRAR -->
+  <div class="modal-overlay" id="buyModal" onclick="closeBuyModalOutside(event)">
+    <div class="modal-box">
+      <div class="modal-head">
+        <div>
+          <h3>Como você quer presentear?</h3>
+          <p id="modalPrice"></p>
+        </div>
+        <button class="modal-close" onclick="closeBuyModal()" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-opts" id="modalOpts">
+        <button class="modal-opt" id="pixOptBtn" onclick="copyPixNow()">
+          <div class="modal-opt-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#628A4C" stroke-width="1.8"><path d="M4 7l8-5 8 5v10l-8 5-8-5V7z"/><path d="M4 7l8 5 8-5M12 12v10"/></svg>
+          </div>
+          <span class="modal-opt-title">Pix</span>
+          <span class="modal-opt-sub" id="pixOptSub">Clique para copiar a chave</span>
+        </button>
+        <a class="modal-opt" href="https://link.mercadopago.com.br/joaoabreu" target="_blank" rel="noopener">
+          <div class="modal-opt-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#628A4C" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+          </div>
+          <span class="modal-opt-title">Mercado Pago</span>
+          <span class="modal-opt-sub">Pague com cartão ou saldo</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
   <footer>
     <p class="footer-names">Lucas &amp; Lene</p>
     <p>18 de Abril de 2026 — com muito amor e gratidão 💚</p>
@@ -342,6 +447,37 @@
       }
       tick();setInterval(tick,1000);
     })();
+    // Modal comprar
+    function openBuyModal(price){
+      document.getElementById('modalPrice').textContent='Presente sugerido: '+price;
+      document.getElementById('pixOptSub').textContent='Clique para copiar a chave';
+      document.getElementById('pixOptBtn').style.borderColor='';
+      document.getElementById('pixOptBtn').style.background='';
+      document.getElementById('buyModal').classList.add('open');
+      document.body.style.overflow='hidden';
+    }
+    function closeBuyModal(){
+      document.getElementById('buyModal').classList.remove('open');
+      document.body.style.overflow='';
+    }
+    function closeBuyModalOutside(e){
+      if(e.target===document.getElementById('buyModal'))closeBuyModal();
+    }
+    function copyPixNow(){
+      var key='edb36814-1d1b-40b4-a4a5-681cc7558960';
+      var btn=document.getElementById('pixOptBtn');
+      var sub=document.getElementById('pixOptSub');
+      function confirm(){
+        sub.textContent='✓ Chave copiada!';
+        btn.style.borderColor='var(--green-500)';
+        btn.style.background='var(--green-50)';
+        setTimeout(function(){sub.textContent='Clique para copiar a chave';btn.style.borderColor='';btn.style.background='';},2800);
+      }
+      try{navigator.clipboard.writeText(key).then(confirm).catch(function(){fallback();});}catch(e){fallback();}
+      function fallback(){var t=document.createElement('textarea');t.value=key;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);confirm();}
+    }
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeBuyModal();});
+
     (function(){
       var btn=document.getElementById('copyBtn');
       var inp=document.getElementById('pixKey');
@@ -357,194 +493,232 @@
     })();
   </script>
 
-  <!-- BOTANICAL LEFT — ramos nascem da borda esquerda -->
+  <!-- BOTANICAL LEFT -->
   <div class="botanical botanical-left" aria-hidden="true">
     <svg viewBox="0 0 190 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMid meet">
 
-      <!-- Caule principal colado na margem esquerda -->
-      <path d="M 4 900 C 10 780 2 660 8 540 C 14 420 4 300 10 180 C 14 90 6 40 4 0"
-            stroke="#7dcfba" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.55"/>
-
-      <!-- Galho 1 superior (y≈830) — vai para cima-direita -->
-      <path d="M 4 830 C 42 812 90 802 155 788" stroke="#7dcfba" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
-      <ellipse cx="46"  cy="817" rx="22" ry="8"  transform="rotate(-14 46 817)"  fill="#aadece" opacity="0.72"/>
-      <ellipse cx="94"  cy="806" rx="20" ry="7"  transform="rotate(-20 94 806)"  fill="#7dcfba" opacity="0.62"/>
-      <ellipse cx="150" cy="792" rx="17" ry="6"  transform="rotate(-28 150 792)" fill="#aadece" opacity="0.60"/>
-      <!-- mini ramo descendo -->
-      <path d="M 4 830 C 36 848 80 858 125 866" stroke="#7dcfba" stroke-width="1.2" fill="none" opacity="0.45"/>
-      <ellipse cx="42"  cy="845" rx="19" ry="7"  transform="rotate(18 42 845)"   fill="#aadece" opacity="0.58"/>
-      <ellipse cx="85"  cy="857" rx="16" ry="6"  transform="rotate(24 85 857)"   fill="#7dcfba" opacity="0.50"/>
-      <ellipse cx="122" cy="864" rx="13" ry="5"  transform="rotate(30 122 864)"  fill="#aadece" opacity="0.48"/>
-
-      <!-- Galho 2 (y≈660) —  -->
-      <path d="M 5 660 C 55 638 115 626 178 612" stroke="#7dcfba" stroke-width="1.7" fill="none" stroke-linecap="round" opacity="0.62"/>
-      <ellipse cx="58"  cy="645" rx="25" ry="9"  transform="rotate(-16 58 645)"  fill="#aadece" opacity="0.74"/>
-      <ellipse cx="112" cy="633" rx="23" ry="8"  transform="rotate(-22 112 633)" fill="#7dcfba" opacity="0.64"/>
-      <ellipse cx="174" cy="618" rx="18" ry="7"  transform="rotate(-30 174 618)" fill="#aadece" opacity="0.58"/>
-      <ellipse cx="42"  cy="668" rx="20" ry="7"  transform="rotate(14 42 668)"   fill="#7dcfba" opacity="0.54"/>
-      <ellipse cx="90"  cy="657" rx="18" ry="7"  transform="rotate(20 90 657)"   fill="#aadece" opacity="0.52"/>
-      <!-- Flor na ponta do galho 2 -->
-      <g transform="translate(178,612)" opacity="0.88">
-        <ellipse rx="9" ry="4"   transform="rotate(18)"  fill="#d6f0e8"/>
-        <ellipse rx="9" ry="4"   transform="rotate(90)"  fill="#d6f0e8"/>
-        <ellipse rx="9" ry="4"   transform="rotate(162)" fill="#d6f0e8"/>
-        <ellipse rx="9" ry="4"   transform="rotate(234)" fill="#d6f0e8"/>
-        <ellipse rx="9" ry="4"   transform="rotate(306)" fill="#d6f0e8"/>
-        <circle r="5.5" fill="#7dcfba"/>
-        <circle r="2.5" fill="white" opacity="0.85"/>
+      <!-- ══ CLUSTER TOPO ══ -->
+      <!-- filigrana outline (estilo gold do ref) -->
+      <path d="M 0,8 C 55,18 105,52 130,118 C 148,162 155,210 148,265" stroke="#c4a55a" stroke-width="1" fill="none" opacity="0.55"/>
+      <ellipse cx="48" cy="20" rx="13" ry="8" transform="rotate(-28 48 20)" stroke="#c4a55a" stroke-width=".9" fill="none" opacity="0.55"/>
+      <ellipse cx="78" cy="42" rx="11" ry="7" transform="rotate(-40 78 42)" stroke="#c4a55a" stroke-width=".9" fill="none" opacity="0.50"/>
+      <ellipse cx="108" cy="70" rx="10" ry="6" transform="rotate(-50 108 70)" stroke="#c4a55a" stroke-width=".8" fill="none" opacity="0.45"/>
+      <ellipse cx="130" cy="105" rx="9" ry="5.5" transform="rotate(-55 130 105)" stroke="#c4a55a" stroke-width=".8" fill="none" opacity="0.42"/>
+      <!-- ramo principal 1 -->
+      <path d="M 0,72 C 48,50 102,62 148,102 C 162,115 170,148 164,190" stroke="#628A4C" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.5"/>
+      <!-- sub-ramo subindo para canto superior -->
+      <path d="M 55,58 C 88,28 128,10 165,2" stroke="#628A4C" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.48"/>
+      <!-- folhas eucalipto sub-ramo topo -->
+      <ellipse cx="82" cy="36" rx="17" ry="11" transform="rotate(-58 82 36)" fill="#4d6e3b" opacity="0.62"/>
+      <ellipse cx="112" cy="20" rx="16" ry="10" transform="rotate(-65 112 20)" fill="#628A4C" opacity="0.58"/>
+      <ellipse cx="145" cy="8" rx="14" ry="9" transform="rotate(-70 145 8)" fill="#8aaf72" opacity="0.55"/>
+      <ellipse cx="68" cy="48" rx="12" ry="8" transform="rotate(-32 68 48)" fill="#8aaf72" opacity="0.52"/>
+      <!-- folhas eucalipto ramo principal 1 — acima -->
+      <ellipse cx="28" cy="56" rx="19" ry="13" transform="rotate(-36 28 56)" fill="#628A4C" opacity="0.66"/>
+      <ellipse cx="68" cy="46" rx="21" ry="14" transform="rotate(-52 68 46)" fill="#4d6e3b" opacity="0.60"/>
+      <ellipse cx="110" cy="68" rx="20" ry="13" transform="rotate(-54 110 68)" fill="#628A4C" opacity="0.58"/>
+      <ellipse cx="145" cy="92" rx="18" ry="11" transform="rotate(-56 145 92)" fill="#8aaf72" opacity="0.55"/>
+      <!-- folhas eucalipto ramo principal 1 — abaixo -->
+      <ellipse cx="16" cy="90" rx="17" ry="11" transform="rotate(14 16 90)" fill="#8aaf72" opacity="0.54"/>
+      <ellipse cx="52" cy="84" rx="16" ry="10" transform="rotate(10 52 84)" fill="#b8d1a9" opacity="0.64"/>
+      <ellipse cx="92" cy="95" rx="15" ry="9" transform="rotate(6 92 95)" fill="#8aaf72" opacity="0.52"/>
+      <ellipse cx="130" cy="116" rx="13" ry="8" transform="rotate(8 130 116)" fill="#b8d1a9" opacity="0.56"/>
+      <!-- ramo 2 -->
+      <path d="M 0,150 C 52,130 112,128 162,148" stroke="#628A4C" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.48"/>
+      <ellipse cx="38" cy="130" rx="19" ry="12" transform="rotate(-24 38 130)" fill="#628A4C" opacity="0.64"/>
+      <ellipse cx="80" cy="125" rx="21" ry="13" transform="rotate(-30 80 125)" fill="#4d6e3b" opacity="0.58"/>
+      <ellipse cx="124" cy="136" rx="18" ry="11" transform="rotate(-22 124 136)" fill="#628A4C" opacity="0.56"/>
+      <ellipse cx="26" cy="162" rx="15" ry="9" transform="rotate(18 26 162)" fill="#8aaf72" opacity="0.52"/>
+      <ellipse cx="65" cy="156" rx="14" ry="9" transform="rotate(14 65 156)" fill="#b8d1a9" opacity="0.60"/>
+      <ellipse cx="104" cy="160" rx="14" ry="8" transform="rotate(12 104 160)" fill="#8aaf72" opacity="0.50"/>
+      <!-- flores brancas topo -->
+      <g transform="translate(163,146)" opacity="0.88">
+        <ellipse rx="8" ry="3.5" transform="rotate(0)"   fill="#f4f7f2"/>
+        <ellipse rx="8" ry="3.5" transform="rotate(72)"  fill="#f4f7f2"/>
+        <ellipse rx="8" ry="3.5" transform="rotate(144)" fill="#f4f7f2"/>
+        <ellipse rx="8" ry="3.5" transform="rotate(216)" fill="#f4f7f2"/>
+        <ellipse rx="8" ry="3.5" transform="rotate(288)" fill="#f4f7f2"/>
+        <circle r="5" fill="#dce8d5"/><circle r="2" fill="white"/>
       </g>
-
-      <!-- Galho 3 (y≈510) — o maior -->
-      <path d="M 6 510 C 62 486 128 474 182 458" stroke="#7dcfba" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.64"/>
-      <ellipse cx="66"  cy="494" rx="27" ry="10" transform="rotate(-15 66 494)"  fill="#aadece" opacity="0.76"/>
-      <ellipse cx="122" cy="482" rx="24" ry="9"  transform="rotate(-21 122 482)" fill="#7dcfba" opacity="0.65"/>
-      <ellipse cx="178" cy="464" rx="20" ry="7"  transform="rotate(-30 178 464)" fill="#aadece" opacity="0.60"/>
-      <ellipse cx="42"  cy="520" rx="21" ry="8"  transform="rotate(13 42 520)"   fill="#7dcfba" opacity="0.56"/>
-      <ellipse cx="92"  cy="509" rx="19" ry="7"  transform="rotate(20 92 509)"   fill="#aadece" opacity="0.54"/>
-      <!-- sub-galho pequeno descendo -->
-      <path d="M 80 478 C 108 492 138 504 165 514" stroke="#7dcfba" stroke-width="1" fill="none" opacity="0.38"/>
-      <ellipse cx="110" cy="491" rx="14" ry="5"  transform="rotate(22 110 491)"  fill="#aadece" opacity="0.48"/>
-      <ellipse cx="148" cy="505" rx="13" ry="5"  transform="rotate(28 148 505)"  fill="#7dcfba" opacity="0.42"/>
-
-      <!-- Galho 4 (y≈370) -->
-      <path d="M 6 370 C 52 346 105 337 162 322" stroke="#7dcfba" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.60"/>
-      <ellipse cx="55"  cy="355" rx="23" ry="8"  transform="rotate(-17 55 355)"  fill="#aadece" opacity="0.70"/>
-      <ellipse cx="104" cy="344" rx="21" ry="8"  transform="rotate(-23 104 344)" fill="#7dcfba" opacity="0.62"/>
-      <ellipse cx="158" cy="328" rx="17" ry="6"  transform="rotate(-30 158 328)" fill="#aadece" opacity="0.58"/>
-      <ellipse cx="38"  cy="378" rx="18" ry="7"  transform="rotate(15 38 378)"   fill="#7dcfba" opacity="0.52"/>
-      <ellipse cx="80"  cy="368" rx="17" ry="6"  transform="rotate(21 80 368)"   fill="#aadece" opacity="0.50"/>
-      <!-- Flor na ponta do galho 4 -->
-      <g transform="translate(162,322)" opacity="0.85">
-        <ellipse rx="8" ry="3.5" transform="rotate(18)"  fill="#d6f0e8"/>
-        <ellipse rx="8" ry="3.5" transform="rotate(90)"  fill="#d6f0e8"/>
-        <ellipse rx="8" ry="3.5" transform="rotate(162)" fill="#d6f0e8"/>
-        <ellipse rx="8" ry="3.5" transform="rotate(234)" fill="#d6f0e8"/>
-        <ellipse rx="8" ry="3.5" transform="rotate(306)" fill="#d6f0e8"/>
-        <circle r="5" fill="#7dcfba"/>
-        <circle r="2.2" fill="white" opacity="0.85"/>
+      <g transform="translate(162,4)" opacity="0.72">
+        <ellipse rx="7" ry="3" transform="rotate(0)"   fill="#f4f7f2"/>
+        <ellipse rx="7" ry="3" transform="rotate(72)"  fill="#f4f7f2"/>
+        <ellipse rx="7" ry="3" transform="rotate(144)" fill="#f4f7f2"/>
+        <ellipse rx="7" ry="3" transform="rotate(216)" fill="#f4f7f2"/>
+        <ellipse rx="7" ry="3" transform="rotate(288)" fill="#f4f7f2"/>
+        <circle r="4.5" fill="#b8d1a9"/><circle r="1.8" fill="white"/>
       </g>
+      <!-- ramo médio esparso -->
+      <path d="M 0,280 C 38,260 76,256 110,270" stroke="#8aaf72" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.38"/>
+      <ellipse cx="32" cy="262" rx="14" ry="9" transform="rotate(-16 32 262)" fill="#8aaf72" opacity="0.46"/>
+      <ellipse cx="66" cy="257" rx="13" ry="8" transform="rotate(-20 66 257)" fill="#b8d1a9" opacity="0.50"/>
+      <ellipse cx="98" cy="265" rx="12" ry="7" transform="rotate(-12 98 265)" fill="#8aaf72" opacity="0.44"/>
+      <!-- ramo médio inferior esparso -->
+      <path d="M 0,395 C 30,378 62,375 92,386" stroke="#8aaf72" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.32"/>
+      <ellipse cx="26" cy="378" rx="12" ry="7" transform="rotate(-14 26 378)" fill="#b8d1a9" opacity="0.38"/>
+      <ellipse cx="56" cy="375" rx="11" ry="6" transform="rotate(-18 56 375)" fill="#8aaf72" opacity="0.35"/>
 
-      <!-- Galho 5 (y≈240) -->
-      <path d="M 7 240 C 46 218 92 210 142 196" stroke="#7dcfba" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.58"/>
-      <ellipse cx="50"  cy="226" rx="21" ry="8"  transform="rotate(-16 50 226)"  fill="#aadece" opacity="0.68"/>
-      <ellipse cx="94"  cy="216" rx="19" ry="7"  transform="rotate(-22 94 216)"  fill="#7dcfba" opacity="0.60"/>
-      <ellipse cx="138" cy="202" rx="15" ry="6"  transform="rotate(-28 138 202)" fill="#aadece" opacity="0.56"/>
-      <ellipse cx="34"  cy="248" rx="17" ry="6"  transform="rotate(14 34 248)"   fill="#7dcfba" opacity="0.50"/>
-      <ellipse cx="74"  cy="238" rx="16" ry="6"  transform="rotate(20 74 238)"   fill="#aadece" opacity="0.48"/>
-
-      <!-- Galho 6 — fino, perto do topo (y≈115) -->
-      <path d="M 5 115 C 36 96 74 88 112 76" stroke="#7dcfba" stroke-width="1.3" fill="none" stroke-linecap="round" opacity="0.52"/>
-      <ellipse cx="40"  cy="103" rx="18" ry="6"  transform="rotate(-18 40 103)"  fill="#aadece" opacity="0.60"/>
-      <ellipse cx="76"  cy="95"  rx="15" ry="6"  transform="rotate(-24 76 95)"   fill="#7dcfba" opacity="0.52"/>
-      <ellipse cx="108" cy="82"  rx="12" ry="5"  transform="rotate(-30 108 82)"  fill="#aadece" opacity="0.50"/>
-      <ellipse cx="28"  cy="122" rx="14" ry="5"  transform="rotate(16 28 122)"   fill="#7dcfba" opacity="0.44"/>
-      <!-- Flor pequena no topo -->
-      <g transform="translate(112,76)" opacity="0.80">
-        <ellipse rx="7" ry="3"   transform="rotate(18)"  fill="#d6f0e8"/>
-        <ellipse rx="7" ry="3"   transform="rotate(90)"  fill="#d6f0e8"/>
-        <ellipse rx="7" ry="3"   transform="rotate(162)" fill="#d6f0e8"/>
-        <ellipse rx="7" ry="3"   transform="rotate(234)" fill="#d6f0e8"/>
-        <ellipse rx="7" ry="3"   transform="rotate(306)" fill="#d6f0e8"/>
-        <circle r="4.5" fill="#7dcfba"/>
-        <circle r="2" fill="white" opacity="0.85"/>
+      <!-- ══ CLUSTER BASE ══ -->
+      <!-- filigrana outline base -->
+      <path d="M 0,892 C 55,878 100,848 126,788 C 148,740 155,695 150,645" stroke="#c4a55a" stroke-width="1" fill="none" opacity="0.52"/>
+      <ellipse cx="40" cy="880" rx="13" ry="8" transform="rotate(26 40 880)" stroke="#c4a55a" stroke-width=".9" fill="none" opacity="0.50"/>
+      <ellipse cx="70" cy="858" rx="11" ry="7" transform="rotate(36 70 858)" stroke="#c4a55a" stroke-width=".9" fill="none" opacity="0.46"/>
+      <ellipse cx="100" cy="832" rx="10" ry="6" transform="rotate(46 100 832)" stroke="#c4a55a" stroke-width=".8" fill="none" opacity="0.42"/>
+      <ellipse cx="120" cy="804" rx="9" ry="5.5" transform="rotate(52 120 804)" stroke="#c4a55a" stroke-width=".8" fill="none" opacity="0.40"/>
+      <!-- ramo principal base 1 -->
+      <path d="M 0,816 C 46,838 96,830 142,795 C 160,780 168,752 162,715" stroke="#628A4C" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.50"/>
+      <!-- sub-ramo descendo para canto -->
+      <path d="M 52,836 C 84,858 122,876 162,890" stroke="#628A4C" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.48"/>
+      <ellipse cx="76" cy="850" rx="17" ry="11" transform="rotate(52 76 850)" fill="#4d6e3b" opacity="0.62"/>
+      <ellipse cx="108" cy="866" rx="16" ry="10" transform="rotate(60 108 866)" fill="#628A4C" opacity="0.58"/>
+      <ellipse cx="142" cy="880" rx="14" ry="9" transform="rotate(64 142 880)" fill="#8aaf72" opacity="0.55"/>
+      <ellipse cx="62" cy="842" rx="12" ry="8" transform="rotate(30 62 842)" fill="#8aaf72" opacity="0.52"/>
+      <!-- folhas base 1 — acima -->
+      <ellipse cx="26" cy="834" rx="19" ry="13" transform="rotate(34 26 834)" fill="#628A4C" opacity="0.66"/>
+      <ellipse cx="64" cy="820" rx="21" ry="14" transform="rotate(50 64 820)" fill="#4d6e3b" opacity="0.60"/>
+      <ellipse cx="106" cy="808" rx="20" ry="13" transform="rotate(52 106 808)" fill="#628A4C" opacity="0.58"/>
+      <ellipse cx="142" cy="798" rx="18" ry="11" transform="rotate(54 142 798)" fill="#8aaf72" opacity="0.55"/>
+      <!-- folhas base 1 — abaixo -->
+      <ellipse cx="16" cy="798" rx="17" ry="11" transform="rotate(-14 16 798)" fill="#8aaf72" opacity="0.54"/>
+      <ellipse cx="50" cy="850" rx="16" ry="10" transform="rotate(-10 50 850)" fill="#b8d1a9" opacity="0.64"/>
+      <ellipse cx="88" cy="838" rx="15" ry="9" transform="rotate(-6 88 838)" fill="#8aaf72" opacity="0.52"/>
+      <ellipse cx="126" cy="822" rx="13" ry="8" transform="rotate(-8 126 822)" fill="#b8d1a9" opacity="0.56"/>
+      <!-- ramo base 2 -->
+      <path d="M 0,738 C 46,756 100,756 150,740" stroke="#628A4C" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.48"/>
+      <ellipse cx="36" cy="740" rx="19" ry="12" transform="rotate(22 36 740)" fill="#628A4C" opacity="0.64"/>
+      <ellipse cx="76" cy="746" rx="21" ry="13" transform="rotate(26 76 746)" fill="#4d6e3b" opacity="0.58"/>
+      <ellipse cx="116" cy="740" rx="18" ry="11" transform="rotate(20 116 740)" fill="#628A4C" opacity="0.56"/>
+      <ellipse cx="23" cy="724" rx="15" ry="9" transform="rotate(-18 23 724)" fill="#8aaf72" opacity="0.52"/>
+      <ellipse cx="60" cy="728" rx="14" ry="9" transform="rotate(-14 60 728)" fill="#b8d1a9" opacity="0.60"/>
+      <ellipse cx="98" cy="726" rx="14" ry="8" transform="rotate(-12 98 726)" fill="#8aaf72" opacity="0.50"/>
+      <!-- flores brancas base -->
+      <g transform="translate(162,714)" opacity="0.88">
+        <ellipse rx="8" ry="3.5" transform="rotate(0)"   fill="#f4f7f2"/>
+        <ellipse rx="8" ry="3.5" transform="rotate(72)"  fill="#f4f7f2"/>
+        <ellipse rx="8" ry="3.5" transform="rotate(144)" fill="#f4f7f2"/>
+        <ellipse rx="8" ry="3.5" transform="rotate(216)" fill="#f4f7f2"/>
+        <ellipse rx="8" ry="3.5" transform="rotate(288)" fill="#f4f7f2"/>
+        <circle r="5" fill="#dce8d5"/><circle r="2" fill="white"/>
       </g>
-
-      <!-- Cacho de bagas decorativo (y≈440) -->
-      <g transform="translate(18,440)" opacity="0.55">
-        <circle cx="0"   cy="0"   r="5.5" fill="#aadece"/>
-        <circle cx="11"  cy="-7"  r="4.5" fill="#7dcfba"/>
-        <circle cx="-7"  cy="-10" r="4"   fill="#aadece"/>
-        <circle cx="6"   cy="-16" r="3.5" fill="#52baa4"/>
-        <circle cx="-2"  cy="-21" r="3"   fill="#7dcfba"/>
-        <path d="M 0,3 Q 6,-8 3,-20" stroke="#7dcfba" stroke-width="1.3" stroke-linecap="round"/>
-        <path d="M 0,3 Q -4,-9 -7,-10" stroke="#7dcfba" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M 3,-20 Q 8,-14 11,-7" stroke="#7dcfba" stroke-width="1.2" stroke-linecap="round"/>
+      <g transform="translate(160,890)" opacity="0.72">
+        <ellipse rx="7" ry="3" transform="rotate(0)"   fill="#f4f7f2"/>
+        <ellipse rx="7" ry="3" transform="rotate(72)"  fill="#f4f7f2"/>
+        <ellipse rx="7" ry="3" transform="rotate(144)" fill="#f4f7f2"/>
+        <ellipse rx="7" ry="3" transform="rotate(216)" fill="#f4f7f2"/>
+        <ellipse rx="7" ry="3" transform="rotate(288)" fill="#f4f7f2"/>
+        <circle r="4.5" fill="#b8d1a9"/><circle r="1.8" fill="white"/>
       </g>
+      <!-- ramo base esparso superior -->
+      <path d="M 0,618 C 34,600 68,596 100,608" stroke="#8aaf72" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.36"/>
+      <ellipse cx="28" cy="600" rx="13" ry="8" transform="rotate(14 28 600)" fill="#8aaf72" opacity="0.44"/>
+      <ellipse cx="60" cy="596" rx="12" ry="7" transform="rotate(20 60 596)" fill="#b8d1a9" opacity="0.48"/>
+      <ellipse cx="90" cy="606" rx="11" ry="6" transform="rotate(12 90 606)" fill="#8aaf72" opacity="0.40"/>
+
     </svg>
   </div>
+
 
   <!-- BOTANICAL RIGHT — CSS scaleX(-1) espelha automaticamente -->
   <div class="botanical botanical-right" aria-hidden="true">
     <svg viewBox="0 0 190 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMid meet">
-      <path d="M 4 900 C 10 780 2 660 8 540 C 14 420 4 300 10 180 C 14 90 6 40 4 0"
-            stroke="#7dcfba" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.55"/>
-      <path d="M 4 830 C 42 812 90 802 155 788" stroke="#7dcfba" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
-      <ellipse cx="46"  cy="817" rx="22" ry="8"  transform="rotate(-14 46 817)"  fill="#aadece" opacity="0.72"/>
-      <ellipse cx="94"  cy="806" rx="20" ry="7"  transform="rotate(-20 94 806)"  fill="#7dcfba" opacity="0.62"/>
-      <ellipse cx="150" cy="792" rx="17" ry="6"  transform="rotate(-28 150 792)" fill="#aadece" opacity="0.60"/>
-      <path d="M 4 830 C 36 848 80 858 125 866" stroke="#7dcfba" stroke-width="1.2" fill="none" opacity="0.45"/>
-      <ellipse cx="42"  cy="845" rx="19" ry="7"  transform="rotate(18 42 845)"   fill="#aadece" opacity="0.58"/>
-      <ellipse cx="85"  cy="857" rx="16" ry="6"  transform="rotate(24 85 857)"   fill="#7dcfba" opacity="0.50"/>
-      <ellipse cx="122" cy="864" rx="13" ry="5"  transform="rotate(30 122 864)"  fill="#aadece" opacity="0.48"/>
-      <path d="M 5 660 C 55 638 115 626 178 612" stroke="#7dcfba" stroke-width="1.7" fill="none" stroke-linecap="round" opacity="0.62"/>
-      <ellipse cx="58"  cy="645" rx="25" ry="9"  transform="rotate(-16 58 645)"  fill="#aadece" opacity="0.74"/>
-      <ellipse cx="112" cy="633" rx="23" ry="8"  transform="rotate(-22 112 633)" fill="#7dcfba" opacity="0.64"/>
-      <ellipse cx="174" cy="618" rx="18" ry="7"  transform="rotate(-30 174 618)" fill="#aadece" opacity="0.58"/>
-      <ellipse cx="42"  cy="668" rx="20" ry="7"  transform="rotate(14 42 668)"   fill="#7dcfba" opacity="0.54"/>
-      <ellipse cx="90"  cy="657" rx="18" ry="7"  transform="rotate(20 90 657)"   fill="#aadece" opacity="0.52"/>
-      <g transform="translate(178,612)" opacity="0.88">
-        <ellipse rx="9" ry="4"   transform="rotate(18)"  fill="#d6f0e8"/>
-        <ellipse rx="9" ry="4"   transform="rotate(90)"  fill="#d6f0e8"/>
-        <ellipse rx="9" ry="4"   transform="rotate(162)" fill="#d6f0e8"/>
-        <ellipse rx="9" ry="4"   transform="rotate(234)" fill="#d6f0e8"/>
-        <ellipse rx="9" ry="4"   transform="rotate(306)" fill="#d6f0e8"/>
-        <circle r="5.5" fill="#7dcfba"/>
-        <circle r="2.5" fill="white" opacity="0.85"/>
+      <!-- IDENTICAL TO LEFT — mirrored via CSS scaleX(-1) -->
+      <!-- ══ CLUSTER TOPO ══ -->
+      <path d="M 0,8 C 55,18 105,52 130,118 C 148,162 155,210 148,265" stroke="#c4a55a" stroke-width="1" fill="none" opacity="0.55"/>
+      <ellipse cx="48" cy="20" rx="13" ry="8" transform="rotate(-28 48 20)" stroke="#c4a55a" stroke-width=".9" fill="none" opacity="0.55"/>
+      <ellipse cx="78" cy="42" rx="11" ry="7" transform="rotate(-40 78 42)" stroke="#c4a55a" stroke-width=".9" fill="none" opacity="0.50"/>
+      <ellipse cx="108" cy="70" rx="10" ry="6" transform="rotate(-50 108 70)" stroke="#c4a55a" stroke-width=".8" fill="none" opacity="0.45"/>
+      <ellipse cx="130" cy="105" rx="9" ry="5.5" transform="rotate(-55 130 105)" stroke="#c4a55a" stroke-width=".8" fill="none" opacity="0.42"/>
+      <path d="M 0,72 C 48,50 102,62 148,102 C 162,115 170,148 164,190" stroke="#628A4C" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.5"/>
+      <path d="M 55,58 C 88,28 128,10 165,2" stroke="#628A4C" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.48"/>
+      <ellipse cx="82" cy="36" rx="17" ry="11" transform="rotate(-58 82 36)" fill="#4d6e3b" opacity="0.62"/>
+      <ellipse cx="112" cy="20" rx="16" ry="10" transform="rotate(-65 112 20)" fill="#628A4C" opacity="0.58"/>
+      <ellipse cx="145" cy="8" rx="14" ry="9" transform="rotate(-70 145 8)" fill="#8aaf72" opacity="0.55"/>
+      <ellipse cx="68" cy="48" rx="12" ry="8" transform="rotate(-32 68 48)" fill="#8aaf72" opacity="0.52"/>
+      <ellipse cx="28" cy="56" rx="19" ry="13" transform="rotate(-36 28 56)" fill="#628A4C" opacity="0.66"/>
+      <ellipse cx="68" cy="46" rx="21" ry="14" transform="rotate(-52 68 46)" fill="#4d6e3b" opacity="0.60"/>
+      <ellipse cx="110" cy="68" rx="20" ry="13" transform="rotate(-54 110 68)" fill="#628A4C" opacity="0.58"/>
+      <ellipse cx="145" cy="92" rx="18" ry="11" transform="rotate(-56 145 92)" fill="#8aaf72" opacity="0.55"/>
+      <ellipse cx="16" cy="90" rx="17" ry="11" transform="rotate(14 16 90)" fill="#8aaf72" opacity="0.54"/>
+      <ellipse cx="52" cy="84" rx="16" ry="10" transform="rotate(10 52 84)" fill="#b8d1a9" opacity="0.64"/>
+      <ellipse cx="92" cy="95" rx="15" ry="9" transform="rotate(6 92 95)" fill="#8aaf72" opacity="0.52"/>
+      <ellipse cx="130" cy="116" rx="13" ry="8" transform="rotate(8 130 116)" fill="#b8d1a9" opacity="0.56"/>
+      <path d="M 0,150 C 52,130 112,128 162,148" stroke="#628A4C" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.48"/>
+      <ellipse cx="38" cy="130" rx="19" ry="12" transform="rotate(-24 38 130)" fill="#628A4C" opacity="0.64"/>
+      <ellipse cx="80" cy="125" rx="21" ry="13" transform="rotate(-30 80 125)" fill="#4d6e3b" opacity="0.58"/>
+      <ellipse cx="124" cy="136" rx="18" ry="11" transform="rotate(-22 124 136)" fill="#628A4C" opacity="0.56"/>
+      <ellipse cx="26" cy="162" rx="15" ry="9" transform="rotate(18 26 162)" fill="#8aaf72" opacity="0.52"/>
+      <ellipse cx="65" cy="156" rx="14" ry="9" transform="rotate(14 65 156)" fill="#b8d1a9" opacity="0.60"/>
+      <ellipse cx="104" cy="160" rx="14" ry="8" transform="rotate(12 104 160)" fill="#8aaf72" opacity="0.50"/>
+      <g transform="translate(163,146)" opacity="0.88">
+        <ellipse rx="8" ry="3.5" transform="rotate(0)"   fill="#f4f7f2"/>
+        <ellipse rx="8" ry="3.5" transform="rotate(72)"  fill="#f4f7f2"/>
+        <ellipse rx="8" ry="3.5" transform="rotate(144)" fill="#f4f7f2"/>
+        <ellipse rx="8" ry="3.5" transform="rotate(216)" fill="#f4f7f2"/>
+        <ellipse rx="8" ry="3.5" transform="rotate(288)" fill="#f4f7f2"/>
+        <circle r="5" fill="#dce8d5"/><circle r="2" fill="white"/>
       </g>
-      <path d="M 6 510 C 62 486 128 474 182 458" stroke="#7dcfba" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.64"/>
-      <ellipse cx="66"  cy="494" rx="27" ry="10" transform="rotate(-15 66 494)"  fill="#aadece" opacity="0.76"/>
-      <ellipse cx="122" cy="482" rx="24" ry="9"  transform="rotate(-21 122 482)" fill="#7dcfba" opacity="0.65"/>
-      <ellipse cx="178" cy="464" rx="20" ry="7"  transform="rotate(-30 178 464)" fill="#aadece" opacity="0.60"/>
-      <ellipse cx="42"  cy="520" rx="21" ry="8"  transform="rotate(13 42 520)"   fill="#7dcfba" opacity="0.56"/>
-      <ellipse cx="92"  cy="509" rx="19" ry="7"  transform="rotate(20 92 509)"   fill="#aadece" opacity="0.54"/>
-      <path d="M 80 478 C 108 492 138 504 165 514" stroke="#7dcfba" stroke-width="1" fill="none" opacity="0.38"/>
-      <ellipse cx="110" cy="491" rx="14" ry="5"  transform="rotate(22 110 491)"  fill="#aadece" opacity="0.48"/>
-      <ellipse cx="148" cy="505" rx="13" ry="5"  transform="rotate(28 148 505)"  fill="#7dcfba" opacity="0.42"/>
-      <path d="M 6 370 C 52 346 105 337 162 322" stroke="#7dcfba" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.60"/>
-      <ellipse cx="55"  cy="355" rx="23" ry="8"  transform="rotate(-17 55 355)"  fill="#aadece" opacity="0.70"/>
-      <ellipse cx="104" cy="344" rx="21" ry="8"  transform="rotate(-23 104 344)" fill="#7dcfba" opacity="0.62"/>
-      <ellipse cx="158" cy="328" rx="17" ry="6"  transform="rotate(-30 158 328)" fill="#aadece" opacity="0.58"/>
-      <ellipse cx="38"  cy="378" rx="18" ry="7"  transform="rotate(15 38 378)"   fill="#7dcfba" opacity="0.52"/>
-      <ellipse cx="80"  cy="368" rx="17" ry="6"  transform="rotate(21 80 368)"   fill="#aadece" opacity="0.50"/>
-      <g transform="translate(162,322)" opacity="0.85">
-        <ellipse rx="8" ry="3.5" transform="rotate(18)"  fill="#d6f0e8"/>
-        <ellipse rx="8" ry="3.5" transform="rotate(90)"  fill="#d6f0e8"/>
-        <ellipse rx="8" ry="3.5" transform="rotate(162)" fill="#d6f0e8"/>
-        <ellipse rx="8" ry="3.5" transform="rotate(234)" fill="#d6f0e8"/>
-        <ellipse rx="8" ry="3.5" transform="rotate(306)" fill="#d6f0e8"/>
-        <circle r="5" fill="#7dcfba"/>
-        <circle r="2.2" fill="white" opacity="0.85"/>
+      <g transform="translate(162,4)" opacity="0.72">
+        <ellipse rx="7" ry="3" transform="rotate(0)"   fill="#f4f7f2"/>
+        <ellipse rx="7" ry="3" transform="rotate(72)"  fill="#f4f7f2"/>
+        <ellipse rx="7" ry="3" transform="rotate(144)" fill="#f4f7f2"/>
+        <ellipse rx="7" ry="3" transform="rotate(216)" fill="#f4f7f2"/>
+        <ellipse rx="7" ry="3" transform="rotate(288)" fill="#f4f7f2"/>
+        <circle r="4.5" fill="#b8d1a9"/><circle r="1.8" fill="white"/>
       </g>
-      <path d="M 7 240 C 46 218 92 210 142 196" stroke="#7dcfba" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.58"/>
-      <ellipse cx="50"  cy="226" rx="21" ry="8"  transform="rotate(-16 50 226)"  fill="#aadece" opacity="0.68"/>
-      <ellipse cx="94"  cy="216" rx="19" ry="7"  transform="rotate(-22 94 216)"  fill="#7dcfba" opacity="0.60"/>
-      <ellipse cx="138" cy="202" rx="15" ry="6"  transform="rotate(-28 138 202)" fill="#aadece" opacity="0.56"/>
-      <ellipse cx="34"  cy="248" rx="17" ry="6"  transform="rotate(14 34 248)"   fill="#7dcfba" opacity="0.50"/>
-      <ellipse cx="74"  cy="238" rx="16" ry="6"  transform="rotate(20 74 238)"   fill="#aadece" opacity="0.48"/>
-      <path d="M 5 115 C 36 96 74 88 112 76" stroke="#7dcfba" stroke-width="1.3" fill="none" stroke-linecap="round" opacity="0.52"/>
-      <ellipse cx="40"  cy="103" rx="18" ry="6"  transform="rotate(-18 40 103)"  fill="#aadece" opacity="0.60"/>
-      <ellipse cx="76"  cy="95"  rx="15" ry="6"  transform="rotate(-24 76 95)"   fill="#7dcfba" opacity="0.52"/>
-      <ellipse cx="108" cy="82"  rx="12" ry="5"  transform="rotate(-30 108 82)"  fill="#aadece" opacity="0.50"/>
-      <ellipse cx="28"  cy="122" rx="14" ry="5"  transform="rotate(16 28 122)"   fill="#7dcfba" opacity="0.44"/>
-      <g transform="translate(112,76)" opacity="0.80">
-        <ellipse rx="7" ry="3"   transform="rotate(18)"  fill="#d6f0e8"/>
-        <ellipse rx="7" ry="3"   transform="rotate(90)"  fill="#d6f0e8"/>
-        <ellipse rx="7" ry="3"   transform="rotate(162)" fill="#d6f0e8"/>
-        <ellipse rx="7" ry="3"   transform="rotate(234)" fill="#d6f0e8"/>
-        <ellipse rx="7" ry="3"   transform="rotate(306)" fill="#d6f0e8"/>
-        <circle r="4.5" fill="#7dcfba"/>
-        <circle r="2" fill="white" opacity="0.85"/>
+      <path d="M 0,280 C 38,260 76,256 110,270" stroke="#8aaf72" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.38"/>
+      <ellipse cx="32" cy="262" rx="14" ry="9" transform="rotate(-16 32 262)" fill="#8aaf72" opacity="0.46"/>
+      <ellipse cx="66" cy="257" rx="13" ry="8" transform="rotate(-20 66 257)" fill="#b8d1a9" opacity="0.50"/>
+      <ellipse cx="98" cy="265" rx="12" ry="7" transform="rotate(-12 98 265)" fill="#8aaf72" opacity="0.44"/>
+      <path d="M 0,395 C 30,378 62,375 92,386" stroke="#8aaf72" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.32"/>
+      <ellipse cx="26" cy="378" rx="12" ry="7" transform="rotate(-14 26 378)" fill="#b8d1a9" opacity="0.38"/>
+      <ellipse cx="56" cy="375" rx="11" ry="6" transform="rotate(-18 56 375)" fill="#8aaf72" opacity="0.35"/>
+      <!-- ══ CLUSTER BASE ══ -->
+      <path d="M 0,892 C 55,878 100,848 126,788 C 148,740 155,695 150,645" stroke="#c4a55a" stroke-width="1" fill="none" opacity="0.52"/>
+      <ellipse cx="40" cy="880" rx="13" ry="8" transform="rotate(26 40 880)" stroke="#c4a55a" stroke-width=".9" fill="none" opacity="0.50"/>
+      <ellipse cx="70" cy="858" rx="11" ry="7" transform="rotate(36 70 858)" stroke="#c4a55a" stroke-width=".9" fill="none" opacity="0.46"/>
+      <ellipse cx="100" cy="832" rx="10" ry="6" transform="rotate(46 100 832)" stroke="#c4a55a" stroke-width=".8" fill="none" opacity="0.42"/>
+      <ellipse cx="120" cy="804" rx="9" ry="5.5" transform="rotate(52 120 804)" stroke="#c4a55a" stroke-width=".8" fill="none" opacity="0.40"/>
+      <path d="M 0,816 C 46,838 96,830 142,795 C 160,780 168,752 162,715" stroke="#628A4C" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.50"/>
+      <path d="M 52,836 C 84,858 122,876 162,890" stroke="#628A4C" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.48"/>
+      <ellipse cx="76" cy="850" rx="17" ry="11" transform="rotate(52 76 850)" fill="#4d6e3b" opacity="0.62"/>
+      <ellipse cx="108" cy="866" rx="16" ry="10" transform="rotate(60 108 866)" fill="#628A4C" opacity="0.58"/>
+      <ellipse cx="142" cy="880" rx="14" ry="9" transform="rotate(64 142 880)" fill="#8aaf72" opacity="0.55"/>
+      <ellipse cx="62" cy="842" rx="12" ry="8" transform="rotate(30 62 842)" fill="#8aaf72" opacity="0.52"/>
+      <ellipse cx="26" cy="834" rx="19" ry="13" transform="rotate(34 26 834)" fill="#628A4C" opacity="0.66"/>
+      <ellipse cx="64" cy="820" rx="21" ry="14" transform="rotate(50 64 820)" fill="#4d6e3b" opacity="0.60"/>
+      <ellipse cx="106" cy="808" rx="20" ry="13" transform="rotate(52 106 808)" fill="#628A4C" opacity="0.58"/>
+      <ellipse cx="142" cy="798" rx="18" ry="11" transform="rotate(54 142 798)" fill="#8aaf72" opacity="0.55"/>
+      <ellipse cx="16" cy="798" rx="17" ry="11" transform="rotate(-14 16 798)" fill="#8aaf72" opacity="0.54"/>
+      <ellipse cx="50" cy="850" rx="16" ry="10" transform="rotate(-10 50 850)" fill="#b8d1a9" opacity="0.64"/>
+      <ellipse cx="88" cy="838" rx="15" ry="9" transform="rotate(-6 88 838)" fill="#8aaf72" opacity="0.52"/>
+      <ellipse cx="126" cy="822" rx="13" ry="8" transform="rotate(-8 126 822)" fill="#b8d1a9" opacity="0.56"/>
+      <path d="M 0,738 C 46,756 100,756 150,740" stroke="#628A4C" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.48"/>
+      <ellipse cx="36" cy="740" rx="19" ry="12" transform="rotate(22 36 740)" fill="#628A4C" opacity="0.64"/>
+      <ellipse cx="76" cy="746" rx="21" ry="13" transform="rotate(26 76 746)" fill="#4d6e3b" opacity="0.58"/>
+      <ellipse cx="116" cy="740" rx="18" ry="11" transform="rotate(20 116 740)" fill="#628A4C" opacity="0.56"/>
+      <ellipse cx="23" cy="724" rx="15" ry="9" transform="rotate(-18 23 724)" fill="#8aaf72" opacity="0.52"/>
+      <ellipse cx="60" cy="728" rx="14" ry="9" transform="rotate(-14 60 728)" fill="#b8d1a9" opacity="0.60"/>
+      <ellipse cx="98" cy="726" rx="14" ry="8" transform="rotate(-12 98 726)" fill="#8aaf72" opacity="0.50"/>
+      <g transform="translate(162,714)" opacity="0.88">
+        <ellipse rx="8" ry="3.5" transform="rotate(0)"   fill="#f4f7f2"/>
+        <ellipse rx="8" ry="3.5" transform="rotate(72)"  fill="#f4f7f2"/>
+        <ellipse rx="8" ry="3.5" transform="rotate(144)" fill="#f4f7f2"/>
+        <ellipse rx="8" ry="3.5" transform="rotate(216)" fill="#f4f7f2"/>
+        <ellipse rx="8" ry="3.5" transform="rotate(288)" fill="#f4f7f2"/>
+        <circle r="5" fill="#dce8d5"/><circle r="2" fill="white"/>
       </g>
-      <g transform="translate(18,440)" opacity="0.55">
-        <circle cx="0"   cy="0"   r="5.5" fill="#aadece"/>
-        <circle cx="11"  cy="-7"  r="4.5" fill="#7dcfba"/>
-        <circle cx="-7"  cy="-10" r="4"   fill="#aadece"/>
-        <circle cx="6"   cy="-16" r="3.5" fill="#52baa4"/>
-        <circle cx="-2"  cy="-21" r="3"   fill="#7dcfba"/>
-        <path d="M 0,3 Q 6,-8 3,-20" stroke="#7dcfba" stroke-width="1.3" stroke-linecap="round"/>
-        <path d="M 0,3 Q -4,-9 -7,-10" stroke="#7dcfba" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M 3,-20 Q 8,-14 11,-7" stroke="#7dcfba" stroke-width="1.2" stroke-linecap="round"/>
+      <g transform="translate(160,890)" opacity="0.72">
+        <ellipse rx="7" ry="3" transform="rotate(0)"   fill="#f4f7f2"/>
+        <ellipse rx="7" ry="3" transform="rotate(72)"  fill="#f4f7f2"/>
+        <ellipse rx="7" ry="3" transform="rotate(144)" fill="#f4f7f2"/>
+        <ellipse rx="7" ry="3" transform="rotate(216)" fill="#f4f7f2"/>
+        <ellipse rx="7" ry="3" transform="rotate(288)" fill="#f4f7f2"/>
+        <circle r="4.5" fill="#b8d1a9"/><circle r="1.8" fill="white"/>
       </g>
+      <path d="M 0,618 C 34,600 68,596 100,608" stroke="#8aaf72" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.36"/>
+      <ellipse cx="28" cy="600" rx="13" ry="8" transform="rotate(14 28 600)" fill="#8aaf72" opacity="0.44"/>
+      <ellipse cx="60" cy="596" rx="12" ry="7" transform="rotate(20 60 596)" fill="#b8d1a9" opacity="0.48"/>
+      <ellipse cx="90" cy="606" rx="11" ry="6" transform="rotate(12 90 606)" fill="#8aaf72" opacity="0.40"/>
     </svg>
   </div>
 
