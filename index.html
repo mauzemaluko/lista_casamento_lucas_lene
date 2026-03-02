@@ -266,11 +266,11 @@
       </div>
 
       <div class="gift-tabs">
-        <button class="gift-tab active" data-cat="todos">Todos <span class="tab-count">39</span></button>
-        <button class="gift-tab" data-cat="cozinha">🍳 Cozinha &amp; Mesa <span class="tab-count">19</span></button>
-        <button class="gift-tab" data-cat="casa">🛏️ Casa &amp; Quarto <span class="tab-count">9</span></button>
-        <button class="gift-tab" data-cat="eletro">🔌 Eletrodomésticos <span class="tab-count">3</span></button>
-        <button class="gift-tab" data-cat="moveis">🪑 Móveis <span class="tab-count">2</span></button>
+        <button class="gift-tab active" data-cat="todos">Todos <span class="tab-count">37</span></button>
+        <button class="gift-tab" data-cat="cozinha">🍳 Cozinha &amp; Mesa <span class="tab-count">15</span></button>
+        <button class="gift-tab" data-cat="casa">🛏️ Casa &amp; Quarto <span class="tab-count">6</span></button>
+        <button class="gift-tab" data-cat="eletro">🔌 Eletrodomésticos <span class="tab-count">4</span></button>
+        <button class="gift-tab" data-cat="moveis">🪑 Móveis <span class="tab-count">5</span></button>
         <button class="gift-tab" data-cat="luademel">✈️ Lua de mel <span class="tab-count">1</span></button>
         <button class="gift-tab" data-cat="divertidos">✨ Surpresas <span class="tab-count">6</span></button>
       </div>
@@ -373,6 +373,12 @@
           <div class="gift-footer"><span class="gift-price">R$ 120</span><button class="btn-comprar" onclick="openBuyModal('R$ 120')">🎁 Comprar</button></div>
         </div>
 
+        <div class="gift-card" data-cat="cozinha">
+          <div class="gift-img"><img src="img/produtos/centrifugadora-salada.webp" alt="Centrifugadora de salada" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Cozinha</span><p class="gift-name">Centrifugadora de salada</p><p class="gift-desc">Lava e seca folhas em segundos, mantém a salada fresca e crocante. Praticidade na cozinha saudável!</p></div>
+          <div class="gift-footer"><span class="gift-price">R$ 80</span><button class="btn-comprar" onclick="openBuyModal('R$ 80')">🎁 Comprar</button></div>
+        </div>
+
         <!-- CASA & QUARTO -->
         <div class="gift-card" data-cat="casa">
           <div class="gift-img"><img src="img/produtos/jogo-cama-queen.webp" alt="Jogo de cama queen 300 fios percal" loading="lazy"></div>
@@ -404,10 +410,34 @@
           <div class="gift-footer"><span class="gift-price">R$ 60</span><button class="btn-comprar" onclick="openBuyModal('R$ 60')">🎁 Comprar</button></div>
         </div>
 
+        <div class="gift-card" data-cat="casa">
+          <div class="gift-img"><img src="img/produtos/cortinas.webp" alt="Cortinas" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Sala</span><p class="gift-name">Cortinas</p><p class="gift-desc">Para dar personalidade e privacidade aos cômodos. O toque final na decoração!</p></div>
+          <div class="gift-footer"><span class="gift-price">Valor livre</span><button class="btn-comprar" onclick="openBuyModal('Valor livre')">🎁 Comprar</button></div>
+        </div>
+
         <!-- ELETRODOMÉSTICOS -->
         <div class="gift-card" data-cat="eletro">
           <div class="gift-img"><img src="img/produtos/geladeira.webp" alt="Geladeira frost-free 400L" loading="lazy"></div>
           <div class="gift-body"><span class="gift-tag">Eletrodoméstico</span><p class="gift-name">Geladeira frost-free 400L</p><p class="gift-desc">2 portas, frost-free, compressor inverter. O presente mais prático para o lar novo!</p></div>
+          <div class="gift-footer"><span class="gift-price">Valor livre</span><button class="btn-comprar" onclick="openBuyModal('Valor livre')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="eletro">
+          <div class="gift-img"><img src="img/produtos/ferro-passar.webp" alt="Ferro de passar roupa" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Eletrodoméstico</span><p class="gift-name">Ferro de passar roupa</p><p class="gift-desc">Ferro a vapor com sola antiaderente e controle de temperatura. Para roupas sempre impecáveis!</p></div>
+          <div class="gift-footer"><span class="gift-price">Valor livre</span><button class="btn-comprar" onclick="openBuyModal('Valor livre')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="eletro">
+          <div class="gift-img"><img src="img/produtos/lavadora-lava-seca.webp" alt="Máquina lava e seca" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Eletrodoméstico</span><p class="gift-name">Máquina lava e seca</p><p class="gift-desc">Lava e seca em um só equipamento — economiza espaço e tempo. Essencial no novo apartamento!</p></div>
+          <div class="gift-footer"><span class="gift-price">Valor livre</span><button class="btn-comprar" onclick="openBuyModal('Valor livre')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="eletro">
+          <div class="gift-img"><img src="img/produtos/lava-loucas.webp" alt="Lava-louças" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Eletrodoméstico</span><p class="gift-name">Lava-louças</p><p class="gift-desc">Mais tempo juntos e menos na pia! Facilita a rotina do casal com eficiência e economia de água.</p></div>
           <div class="gift-footer"><span class="gift-price">Valor livre</span><button class="btn-comprar" onclick="openBuyModal('Valor livre')">🎁 Comprar</button></div>
         </div>
 
@@ -422,6 +452,24 @@
           <div class="gift-img"><img src="img/produtos/cadeira-ergonomica.webp" alt="Cadeira de escritório ergonômica" loading="lazy"></div>
           <div class="gift-body"><span class="gift-tag">Móvel</span><p class="gift-name">Cadeira de escritório ergonômica</p><p class="gift-desc">Assento regulável, encosto lombar, apoio de braços. Porque home office merece conforto — de verdade.</p></div>
           <div class="gift-footer"><span class="gift-price">R$ 600</span><button class="btn-comprar" onclick="openBuyModal('R$ 600')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="moveis">
+          <div class="gift-img"><img src="img/produtos/rack-tv.webp" alt="Rack para TV" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Móvel</span><p class="gift-name">Rack para TV</p><p class="gift-desc">Rack moderno com espaço para TV e nichos para organizar eletronicos. Indispensável na sala nova!</p></div>
+          <div class="gift-footer"><span class="gift-price">Valor livre</span><button class="btn-comprar" onclick="openBuyModal('Valor livre')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="moveis">
+          <div class="gift-img"><img src="img/produtos/mesa-escritorio.webp" alt="Mesa de escritório" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Móvel</span><p class="gift-name">Mesa de escritório</p><p class="gift-desc">Mesa espaçosa para trabalhar em casa com conforto e estilo. Ideal para o home office a dois!</p></div>
+          <div class="gift-footer"><span class="gift-price">Valor livre</span><button class="btn-comprar" onclick="openBuyModal('Valor livre')">🎁 Comprar</button></div>
+        </div>
+
+        <div class="gift-card" data-cat="moveis">
+          <div class="gift-img"><img src="img/produtos/mesa-jantar.webp" alt="Mesa de jantar" loading="lazy"></div>
+          <div class="gift-body"><span class="gift-tag">Móvel</span><p class="gift-name">Mesa de jantar</p><p class="gift-desc">Para receber família e amigos com elegância. Para todas as reuniões e jantares do novo lar!</p></div>
+          <div class="gift-footer"><span class="gift-price">Valor livre</span><button class="btn-comprar" onclick="openBuyModal('Valor livre')">🎁 Comprar</button></div>
         </div>
 
         <!-- LUA DE MEL -->
