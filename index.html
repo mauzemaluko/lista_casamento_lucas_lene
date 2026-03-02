@@ -45,11 +45,11 @@
     .sec-head .count{background:var(--green-100);color:var(--green-700);font-size:.8rem;font-weight:600;padding:3px 10px;border-radius:999px}
 
     /* PHOTOS */
-    .photos-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:200px 200px 200px;gap:10px}
-    .photo-slot{background:var(--green-100);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--green-600);font-weight:500;font-size:.9rem;border:2px dashed #a5c48e;border-radius:10px;overflow:hidden}
-    .photo-slot svg{opacity:.5;width:32px;height:32px}
-    .photo-slot:first-child{grid-row:span 2}
-    .photo-slot img{width:100%;height:100%;object-fit:cover;display:block}
+    .photos-grid{columns:3;column-gap:12px}
+    .photo-slot{break-inside:avoid;margin-bottom:12px;border-radius:12px;overflow:hidden;background:var(--green-50)}
+    .photo-slot svg{opacity:.5;width:32px;height:32px;display:block;margin:40px auto 8px}
+    .photo-slot:first-child{grid-row:unset}
+    .photo-slot img{width:100%;height:auto;display:block}
 
     /* GIFT CARDS */
     .gifts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
@@ -157,8 +157,8 @@
       .hero{padding:56px 18px 40px}
       .pix-header,.pix-body{padding:24px 22px}
       .sec-head{flex-direction:column;align-items:flex-start;gap:8px}
-      .photos-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
-      .photo-slot:first-child{grid-row:span 1}
+      .photos-grid{columns:2}
+      .photo-slot:first-child{grid-row:unset}
     }
   </style>
 </head>
@@ -250,7 +250,7 @@
         <div class="photo-slot">
           <img src="img/casal/20230917_115238.jpg" alt="Lucas e Lene" loading="lazy">
         </div>
-        <div class="photo-slot" style="grid-column:span 2">
+        <div class="photo-slot">
           <img src="img/casal/20221224_113945.jpg" alt="Lucas e Lene" loading="lazy">
         </div>
       </div>
