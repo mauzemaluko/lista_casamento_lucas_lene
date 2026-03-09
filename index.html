@@ -162,6 +162,23 @@
     .invite-signature span{color:var(--green-600)}
     @media(max-width:600px){.invite-events{flex-direction:column;align-items:center}.invite-event{max-width:100%;width:100%}}
 
+    /* RSVP */
+    .rsvp-section{background:rgba(255,255,255,.85);border:1px solid var(--green-100);border-radius:var(--radius);padding:36px 32px;max-width:480px;margin:8px auto 0;text-align:center;width:100%}
+    .rsvp-section h2{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--gray-800);margin-bottom:8px}
+    .rsvp-section p{color:var(--gray-600);font-size:.93rem;margin-bottom:28px}
+    .rsvp-form{display:flex;flex-direction:column;gap:14px;text-align:left}
+    .rsvp-form label{font-size:.83rem;font-weight:600;color:var(--gray-700);margin-bottom:3px;display:block}
+    .rsvp-form input,.rsvp-form select{width:100%;padding:11px 14px;border:1.5px solid var(--green-200);border-radius:9px;font-size:.95rem;font-family:inherit;background:var(--white);color:var(--gray-800);outline:none;transition:border-color .15s}
+    .rsvp-form input:focus,.rsvp-form select:focus{border-color:var(--green-500)}
+    .rsvp-btn{background:var(--green-600);color:#fff;border:none;padding:13px;border-radius:9px;font-size:.97rem;font-weight:600;cursor:pointer;transition:background .15s;margin-top:4px}
+    .rsvp-btn:hover{background:var(--green-700)}
+    .rsvp-btn:disabled{background:var(--green-200);cursor:not-allowed}
+    .rsvp-success{display:none;flex-direction:column;align-items:center;gap:12px;padding:24px 0}
+    .rsvp-success-icon{font-size:3rem}
+    .rsvp-success h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--green-700)}
+    .rsvp-success p{color:var(--gray-600);font-size:.9rem}
+    .rsvp-error{display:none;color:#c0392b;font-size:.83rem;text-align:center;margin-top:4px}
+
     /* RESPONSIVE */
     @media(max-width:700px){
       nav{padding:12px 18px}.nav-links{gap:14px}
@@ -180,6 +197,7 @@
     <div class="nav-links">
       <a href="#fotos">Fotos</a>
       <a href="#presentes">Presentes</a>
+      <a href="#convite">Confirmar</a>
       <a href="#pix">Pix</a>
     </div>
   </nav>
@@ -237,6 +255,42 @@
       <div class="countdown-box"><div class="countdown-num" id="cd-h">--</div><div class="countdown-lbl">Horas</div></div>
       <div class="countdown-box"><div class="countdown-num" id="cd-m">--</div><div class="countdown-lbl">Minutos</div></div>
       <div class="countdown-box"><div class="countdown-num" id="cd-s">--</div><div class="countdown-lbl">Segundos</div></div>
+    </div>
+
+    <div class="rsvp-section">
+      <h2>Confirme sua presença 💚</h2>
+      <p>Nos ajude a organizar o grande dia confirmando se você vai estar com a gente!</p>
+      <form class="rsvp-form" id="rsvpForm">
+        <div>
+          <label for="rsvpNome">Seu nome completo</label>
+          <input type="text" id="rsvpNome" placeholder="Ex: João" autocomplete="name" required>
+        </div>
+        <div>
+          <label for="rsvpPresenca">Você estará presente em</label>
+          <select id="rsvpPresenca">
+            <option value="Casamento e almoço" selected>Casamento 🏛️ + Almoço 🍽️ (os dois)</option>
+            <option value="Apenas casamento">Apenas cerimônia no cartório 🏛️</option>
+            <option value="Apenas almoço">Apenas o almoço 🍽️</option>
+          </select>
+        </div>
+        <div>
+          <label for="rsvpQtd">Quantas pessoas virão? (incluindo você)</label>
+          <select id="rsvpQtd">
+            <option value="1">1 pessoa — só eu</option>
+            <option value="2" selected>2 pessoas</option>
+            <option value="3">3 pessoas</option>
+            <option value="4">4 pessoas</option>
+            <option value="5">5 ou mais</option>
+          </select>
+        </div>
+        <button type="submit" class="rsvp-btn" id="rsvpBtn">✅ Confirmar presença</button>
+        <div class="rsvp-error" id="rsvpError">Algo deu errado. Tente novamente ou fale diretamente com a gente!</div>
+      </form>
+      <div class="rsvp-success" id="rsvpSuccess">
+        <div class="rsvp-success-icon">🎉</div>
+        <h3>Presença confirmada!</h3>
+        <p id="rsvpSuccessMsg">Que alegria! Mal podemos esperar para celebrar com você.</p>
+      </div>
     </div>
   </section>
 
@@ -618,6 +672,8 @@
     </div>
   </div>
 
+  <!-- CONFIRMAÇÃO DE PRESENÇA removida daqui - está na hero -->
+
   <footer>
     <p class="footer-names">Lucas &amp; Lene</p>
     <p>18 de Abril de 2026 — com muito amor e gratidão 💚</p>
@@ -690,6 +746,40 @@
       function fallback(){var t=document.createElement('textarea');t.value=payload;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);confirm();}
     }
     document.addEventListener('keydown',function(e){if(e.key==='Escape')closeBuyModal();});
+
+    // RSVP
+    var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbweVQAOoj8MULV_6OjXT2RAt7QkTT3WSy3ZJvmlEmxG-14v8n5qSVyjBhjaBE7fRhk/exec';
+    document.getElementById('rsvpForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      var nome = document.getElementById('rsvpNome').value.trim();
+      var presenca = document.getElementById('rsvpPresenca').value;
+      var qtd      = document.getElementById('rsvpQtd').value;
+      if(!nome) return;
+      var btn = document.getElementById('rsvpBtn');
+      var err = document.getElementById('rsvpError');
+      btn.disabled = true;
+      btn.textContent = 'Enviando…';
+      err.style.display = 'none';
+      fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {'Content-Type': 'text/plain'},
+        body: JSON.stringify({nome: nome, presenca: presenca, convidados: qtd})
+      })
+      .then(function(){
+        // no-cors: não conseguimos ler a resposta, mas se chegou aqui funcionou
+        document.getElementById('rsvpForm').style.display = 'none';
+        var s = document.getElementById('rsvpSuccess');
+        s.style.display = 'flex';
+        document.getElementById('rsvpSuccessMsg').textContent =
+          'Que alegria, ' + nome.split(' ')[0] + '! Mal podemos esperar para celebrar com você.';
+      })
+      .catch(function(){
+        btn.disabled = false;
+        btn.textContent = '✅ Confirmar presença';
+        err.style.display = 'block';
+      });
+    });
 
     // Abas dos presentes
     document.querySelectorAll('.gift-tab').forEach(function(btn){
